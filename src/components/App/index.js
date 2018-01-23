@@ -14,18 +14,6 @@ class App extends Component {
     this.props.actions.cities.citiesAll();
   }
 
-  // handleAddCity = city => {
-  //   this.setState(state => ({
-  //     cities: [
-  //       ...state.cities,
-  //       {
-  //         ...city,
-  //         id: nanoid()
-  //       }
-  //     ]
-  //   }));
-  // };
-
   // handleRemoveCity = city => {
   //   const idx = this.state.cities.findIndex(c => c.id === city.id);
 
