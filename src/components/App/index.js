@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import nanoid from "nanoid";
+import Topbar from "../Topbar";
 import Cities from "../Cities";
 import Form from "../Form";
 import * as styles from "./styles";
@@ -65,6 +66,7 @@ class App extends Component {
 
     return (
       <styles.App>
+        <Topbar />
         <Cities cities={cities} onRemoveCity={this.handleRemoveCity} />
         <Form onAddCity={this.handleAddCity} />
       </styles.App>
