@@ -1,47 +1,46 @@
 import React, { Component } from "react";
-import nanoid from "nanoid";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import * as citiesActions from "../../store/cities/actions";
+import * as citiesSelectors from "../../store/cities/selectors";
+// import nanoid from "nanoid";
 import Topbar from "../Topbar";
 import Cities from "../Cities";
 import Form from "../Form";
 import * as styles from "./styles";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      cities: [
-      ]
-    };
+  componentDidMount() {
+    this.props.actions.cities.citiesAll();
   }
 
-  handleAddCity = city => {
-    this.setState(state => ({
-      cities: [
-        ...state.cities,
-        {
-          ...city,
-          id: nanoid()
-        }
-      ]
-    }));
-  };
+  // handleAddCity = city => {
+  //   this.setState(state => ({
+  //     cities: [
+  //       ...state.cities,
+  //       {
+  //         ...city,
+  //         id: nanoid()
+  //       }
+  //     ]
+  //   }));
+  // };
 
-  handleRemoveCity = city => {
-    const idx = this.state.cities.findIndex(c => c.id === city.id);
+  // handleRemoveCity = city => {
+  //   const idx = this.state.cities.findIndex(c => c.id === city.id);
 
-    const cities = [
-      ...this.state.cities.slice(0, idx),
-      ...this.state.cities.slice(idx + 1)
-    ];
+  //   const cities = [
+  //     ...this.state.cities.slice(0, idx),
+  //     ...this.state.cities.slice(idx + 1)
+  //   ];
 
-    this.setState(state => ({
-      cities
-    }));
-  };
+  //   this.setState(state => ({
+  //     cities
+  //   }));
+  // };
 
   render() {
-    const { cities } = this.state;
+    const { cities } = this.props;
 
     return (
       <styles.App>
@@ -53,4 +52,14 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = ({ cities }) => ({
+  cities: citiesSelectors.getCities(cities)
+});
+
+const mapDispatchToProps = dispatch => ({
+  actions: {
+    cities: bindActionCreators(citiesActions, dispatch)
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

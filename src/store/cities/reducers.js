@@ -1,3 +1,4 @@
+import uniq from "lodash/uniq";
 import * as actions from "./actions";
 
 const CITIES = [
@@ -32,8 +33,8 @@ const initialState = {
 const cities = (state = initialState, action) => {
   switch (action.type) {
     // ALL
-    case actions.CITIES_ALL: {
-      return citiesAll(state, action);
+    case actions.CITIES_ALL_SUCCESS: {
+      return citiesAllSuccess(state, action);
     }
     default: {
       return state;
@@ -42,15 +43,19 @@ const cities = (state = initialState, action) => {
 };
 
 // ALL
-const citiesAll = (state, action) => ({
+const citiesAllSuccess = (state, action) => ({
   ...state,
   entities: {
     ...state.entities,
     ...CITIES.reduce((all, current, idx) => {
       all[current.id] = current;
       return all;
-    }, {})
-  }
+    }, {}),
+  },
+  data: uniq([
+    ...state.data,
+    ...CITIES.map(city => city.id)
+  ])
 });
 
 export default cities;
