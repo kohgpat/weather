@@ -10,10 +10,14 @@ class CitiesContainer extends Component {
     this.props.actions.cities.citiesAll();
   }
 
+  handleRemoveCity = (city) => {
+    this.props.actions.cities.citiesRemove(city);
+  };
+
   render() {
     const { cities } = this.props;
 
-    return <Cities cities={cities} />;
+    return <Cities cities={cities} onRemoveCity={this.handleRemoveCity} />;
   }
 }
 

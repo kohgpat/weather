@@ -7,19 +7,6 @@ import FormContainer from "../../containers/Form";
 import * as styles from "./styles";
 
 class App extends Component {
-  // handleRemoveCity = city => {
-  //   const idx = this.state.cities.findIndex(c => c.id === city.id);
-
-  //   const cities = [
-  //     ...this.state.cities.slice(0, idx),
-  //     ...this.state.cities.slice(idx + 1)
-  //   ];
-
-  //   this.setState(state => ({
-  //     cities
-  //   }));
-  // };
-
   render() {
     return (
       <styles.App>

@@ -40,10 +40,15 @@ function* citiesAdd(action) {
   yield put(citiesActions.citiesAddSuccess(city));
 }
 
+function* citiesRemove(action) {
+  yield put(citiesActions.citiesRemoveSuccess(action.payload.city));
+}
+
 // WATCHERS
 function* citiesFlow() {
   yield takeLatest(citiesActions.CITIES_ALL, citiesAll);
   yield takeLatest(citiesActions.CITIES_ADD, citiesAdd);
+  yield takeLatest(citiesActions.CITIES_REMOVE, citiesRemove);
 }
 
 export default function* cities() {

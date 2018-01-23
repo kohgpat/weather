@@ -26,3 +26,19 @@ export const citiesAddSuccess = city => ({
     city
   }
 });
+
+export const CITIES_REMOVE = "CITIES_REMOVE";
+export const citiesRemove = city => ({
+  type: CITIES_REMOVE,
+  payload: {
+    city
+  }
+});
+
+export const CITIES_REMOVE_SUCCESS = "CITIES_REMOVE_SUCCESS";
+export const citiesRemoveSuccess = city => ({
+  type: CITIES_REMOVE_SUCCESS,
+  payload: {
+    city
+  }
+});

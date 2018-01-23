@@ -1,4 +1,5 @@
 import uniq from "lodash/uniq";
+import omit from "lodash/omit";
 import * as actions from "./actions";
 
 const initialState = {
@@ -15,6 +16,10 @@ const cities = (state = initialState, action) => {
     // ADD
     case actions.CITIES_ADD_SUCCESS: {
       return citiesAddSuccess(state, action);
+    }
+    // REMOVE
+    case actions.CITIES_REMOVE_SUCCESS: {
+      return citiesRemoveSuccess(state, action);
     }
     default: {
       return state;
@@ -46,5 +51,18 @@ const citiesAddSuccess = (state, action) => ({
   },
   data: uniq([...state.data, action.payload.city.id])
 });
+
+// REMOVE
+const citiesRemoveSuccess = (state, action) => {
+  const idx = state.data.findIndex(id => id === action.payload.city.id);
+
+  const newState = {
+    ...state,
+    entities: omit(state.entities, [action.payload.city.id]),
+    data: [...state.data.slice(0, idx), ...state.data.slice(idx + 1)]
+  };
+
+  return newState;
+};
 
 export default cities;
