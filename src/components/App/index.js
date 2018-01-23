@@ -1,19 +1,12 @@
 import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import * as citiesActions from "../../store/cities/actions";
-import * as citiesSelectors from "../../store/cities/selectors";
-// import nanoid from "nanoid";
 import Topbar from "../Topbar";
-import Cities from "../Cities";
+import CitiesContainer from "../../containers/Cities";
 import FormContainer from "../../containers/Form";
 import * as styles from "./styles";
 
 class App extends Component {
-  componentDidMount() {
-    this.props.actions.cities.citiesAll();
-  }
-
   // handleRemoveCity = city => {
   //   const idx = this.state.cities.findIndex(c => c.id === city.id);
 
@@ -28,26 +21,14 @@ class App extends Component {
   // };
 
   render() {
-    const { cities } = this.props;
-
     return (
       <styles.App>
         <Topbar />
-        <Cities cities={cities} onRemoveCity={this.handleRemoveCity} />
+        <CitiesContainer />
         <FormContainer />
       </styles.App>
     );
   }
 }
 
-const mapStateToProps = ({ cities }) => ({
-  cities: citiesSelectors.getCities(cities)
-});
-
-const mapDispatchToProps = dispatch => ({
-  actions: {
-    cities: bindActionCreators(citiesActions, dispatch)
-  }
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
