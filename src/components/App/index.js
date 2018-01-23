@@ -6,7 +6,7 @@ import * as citiesSelectors from "../../store/cities/selectors";
 // import nanoid from "nanoid";
 import Topbar from "../Topbar";
 import Cities from "../Cities";
-import Form from "../Form";
+import FormContainer from "../../containers/Form";
 import * as styles from "./styles";
 
 class App extends Component {
@@ -46,7 +46,7 @@ class App extends Component {
       <styles.App>
         <Topbar />
         <Cities cities={cities} onRemoveCity={this.handleRemoveCity} />
-        <Form onAddCity={this.handleAddCity} />
+        <FormContainer />
       </styles.App>
     );
   }

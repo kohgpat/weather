@@ -27,13 +27,23 @@ const CITIES = [
 ];
 
 // WORKERS
-function* fetchCitiesAll(action) {
+function* citiesAll(action) {
   yield put(citiesActions.citiesAllSuccess(CITIES));
-};
+}
+
+function* citiesAdd(action) {
+  const city = {
+    ...action.payload.city,
+    id: nanoid()
+  };
+
+  yield put(citiesActions.citiesAddSuccess(city));
+}
 
 // WATCHERS
 function* citiesFlow() {
-  yield takeLatest(citiesActions.CITIES_ALL, fetchCitiesAll);
+  yield takeLatest(citiesActions.CITIES_ALL, citiesAll);
+  yield takeLatest(citiesActions.CITIES_ADD, citiesAdd);
 }
 
 export default function* cities() {

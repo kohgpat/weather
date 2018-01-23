@@ -30,12 +30,9 @@ const citiesAllSuccess = (state, action) => ({
     ...action.payload.cities.reduce((all, current, idx) => {
       all[current.id] = current;
       return all;
-    }, {}),
+    }, {})
   },
-  data: uniq([
-    ...state.data,
-    ...action.payload.cities.map(city => city.id)
-  ])
+  data: uniq([...state.data, ...action.payload.cities.map(city => city.id)])
 });
 
 // ADD
@@ -47,10 +44,7 @@ const citiesAddSuccess = (state, action) => ({
       ...action.payload.city
     }
   },
-  data: uniq([
-    ...state.data,
-    ...action.payload.city.id
-  ])
+  data: uniq([...state.data, action.payload.city.id])
 });
 
 export default cities;
