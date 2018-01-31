@@ -21,6 +21,10 @@ const cities = (state = initialState, action) => {
     case actions.CITIES_REMOVE_SUCCESS: {
       return citiesRemoveSuccess(state, action);
     }
+    // UPDATE
+    case actions.CITIES_UPDATE_SUCCESS: {
+      return citiesUpdateSuccess(state, action);
+    }
     default: {
       return state;
     }
@@ -28,17 +32,21 @@ const cities = (state = initialState, action) => {
 };
 
 // ALL
-const citiesAllSuccess = (state, action) => ({
-  ...state,
-  entities: {
-    ...state.entities,
-    ...action.payload.cities.reduce((all, current, idx) => {
-      all[current.id] = current;
-      return all;
-    }, {})
-  },
-  data: uniq([...state.data, ...action.payload.cities.map(city => city.id)])
-});
+const citiesAllSuccess = (state, action) => {
+  const newState = {
+    ...state,
+    entities: {
+      ...state.entities,
+      ...action.payload.cities.reduce((all, current, idx) => {
+        all[current.id] = current;
+        return all;
+      }, {})
+    },
+    data: uniq([...state.data, ...action.payload.cities.map(city => city.id)])
+  };
+
+  return newState;
+};
 
 // ADD
 const citiesAddSuccess = (state, action) => ({
@@ -60,6 +68,22 @@ const citiesRemoveSuccess = (state, action) => {
     ...state,
     entities: omit(state.entities, [action.payload.city.id]),
     data: [...state.data.slice(0, idx), ...state.data.slice(idx + 1)]
+  };
+
+  return newState;
+};
+
+// UPDATE
+const citiesUpdateSuccess = (state, action) => {
+  const newState = {
+    ...state,
+    entities: {
+      ...state.entities,
+      [action.payload.city.id]: {
+        ...state.entities[action.payload.city.id],
+        ...action.payload.city
+      }
+    }
   };
 
   return newState;
