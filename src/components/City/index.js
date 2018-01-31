@@ -10,12 +10,16 @@ const City = ({ city = null, onRemoveCity }) => {
     <styles.City>
       <styles.Header>
         <styles.Name>{city.name}</styles.Name>
-        <styles.RemoveButton onClick={() => onRemoveCity(city)}>&times;</styles.RemoveButton>
+        <styles.RemoveButton onClick={() => onRemoveCity(city)}>
+          &times;
+        </styles.RemoveButton>
       </styles.Header>
 
       <styles.Stats>
-        <styles.Stat>{city.temperature}</styles.Stat>
-        <styles.Stat>{city.condition}</styles.Stat>
+        <styles.Stat>{city.main && city.main.temp}</styles.Stat>
+        <styles.Stat>
+          {city.weather && city.weather.length > 0 && city.weather[0].main}
+        </styles.Stat>
       </styles.Stats>
     </styles.City>
   );
