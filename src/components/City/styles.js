@@ -25,6 +25,12 @@ export const RemoveButton = styled.button.attrs({ type: "button" })`
   background-color: transparent;
   border: 0;
   margin: 10px 10px 10px auto;
+  visibility: hidden;
+  cursor: pointer;
+
+  ${City}:hover & {
+    visibility: visible;
+  }
 `;
 
 export const Stats = styled.div`
