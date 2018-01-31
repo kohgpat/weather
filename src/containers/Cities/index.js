@@ -21,8 +21,8 @@ class CitiesContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ cities }) => ({
-  cities: citiesSelectors.getCities(cities)
+const mapStateToProps = (state) => ({
+  cities: citiesSelectors.getCities(state)
 });
 
 const mapDispatchToProps = dispatch => ({

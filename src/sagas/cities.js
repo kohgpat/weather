@@ -1,51 +1,25 @@
 import nanoid from "nanoid";
 import { delay } from "redux-saga";
-import { all, call, spawn, put, takeLatest } from "redux-saga/effects";
+import { all, call, spawn, put, select, takeLatest } from "redux-saga/effects";
 import * as citiesActions from "../store/cities/actions";
+import * as citiesSelectors from "../store/cities/selectors";
 import Api from "../api";
-
-const CITIES = [
-  // {
-  //   id: 1,
-  //   name: "Berlin",
-  //   interval: 10000,
-  //   temperature: "-10",
-  //   condition: "rain"
-  // },
-  // {
-  //   id: 2,
-  //   name: "New York",
-  //   interval: 50000,
-  //   temperature: "-15",
-  //   condition: "sunshine"
-  // },
-  // {
-  //   id: 3,
-  //   name: "London",
-  //   interval: 100000,
-  //   temperature: "-8",
-  //   condition: "cloudy"
-  // },
-  // {
-  //   id: 4,
-  //   name: "Ulan-Ude",
-  //   interval: 100000,
-  //   temperature: "-8",
-  //   condition: "cloudy"
-  // }
-];
 
 // WORKERS
 function* citiesAll(action) {
+  const cities = yield select(citiesSelectors.getCities);
+
   try {
-    if (CITIES.length) {
-      const citiesNames = CITIES.map(city => city.name);
-      const cities = yield all(
+    if (cities.length) {
+      const citiesNames = cities.map(city => city.name);
+      const response = yield all(
         citiesNames.map(city => call(Api.cities.find, city))
       );
       yield put(
-        citiesActions.citiesAllSuccess(cities.map(city => ({ ...city.data })))
+        citiesActions.citiesAllSuccess(response.map(city => city.data))
       );
+      const refreshedCities = yield select(citiesSelectors.getCities);
+      yield all(refreshedCities.map(city => spawn(refreshCity, city)));
     }
   } catch (error) {
     console.log(error);

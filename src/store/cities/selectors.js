@@ -1,1 +1,1 @@
-export const getCities = state => state.data.map(id => state.entities[id]);
+export const getCities = state => state.cities.data.map(id => state.cities.entities[id]);
