@@ -62,3 +62,12 @@ export const citiesUpdateSuccess = city => ({
     city
   }
 });
+
+// STOP_REFRESH
+export const CITIES_STOP_REFRESH = "CITIES_STOP_REFRESH";
+export const citiesStopRefresh = city => ({
+  type: CITIES_STOP_REFRESH,
+  payload: {
+    city
+  }
+});

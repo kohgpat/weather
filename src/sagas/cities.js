@@ -1,6 +1,17 @@
 import nanoid from "nanoid";
 import { delay } from "redux-saga";
-import { all, call, spawn, put, select, takeLatest } from "redux-saga/effects";
+import {
+  all,
+  cancel,
+  call,
+  fork,
+  spawn,
+  put,
+  select,
+  take,
+  takeEvery,
+  takeLatest
+} from "redux-saga/effects";
 import * as citiesActions from "../store/cities/actions";
 import * as citiesSelectors from "../store/cities/selectors";
 import Api from "../api";
@@ -19,7 +30,11 @@ function* citiesAll(action) {
         citiesActions.citiesAllSuccess(response.map(city => city.data))
       );
       const refreshedCities = yield select(citiesSelectors.getCities);
-      yield all(refreshedCities.map(city => spawn(refreshCity, city)));
+      const refresh = yield all(
+        refreshedCities.map(city => spawn(refreshCity, city))
+      );
+
+      console.log(refresh);
     }
   } catch (error) {
     console.log(error);
@@ -49,7 +64,15 @@ function* citiesAdd(action) {
     };
 
     yield put(citiesActions.citiesAddSuccess(city));
-    const refresh = yield spawn(refreshCity, city);
+    const refresh = yield fork(refreshCity, city);
+    const stopRefreshCity = yield take(citiesActions.CITIES_STOP_REFRESH);
+
+    console.log(refresh);
+    console.log(stopRefreshCity, city);
+
+    if (stopRefreshCity.payload.city.id === city.id) {
+      yield cancel(refresh);
+    }
   } catch (error) {
     console.log(error);
   }
@@ -57,6 +80,7 @@ function* citiesAdd(action) {
 
 function* citiesRemove(action) {
   yield put(citiesActions.citiesRemoveSuccess(action.payload.city));
+  yield put(citiesActions.citiesStopRefresh(action.payload.city));
 }
 
 function* citiesUpdate(action) {
@@ -71,7 +95,7 @@ function* citiesUpdate(action) {
 // WATCHERS
 function* citiesFlow() {
   yield takeLatest(citiesActions.CITIES_ALL, citiesAll);
-  yield takeLatest(citiesActions.CITIES_ADD, citiesAdd);
+  yield takeEvery(citiesActions.CITIES_ADD, citiesAdd);
   yield takeLatest(citiesActions.CITIES_REMOVE, citiesRemove);
   yield takeLatest(citiesActions.CITIES_UPDATE, citiesUpdate);
 }
