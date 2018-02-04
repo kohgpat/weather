@@ -1,31 +1,30 @@
 import React, { Component } from "react";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import * as settingsActions from "../../store/settings/actions";
+import * as settingsSelectors from "../../store/settings/selectors";
 import Topbar from "../../components/Topbar";
 
 class TopbarContainer extends Component {
-  state = {
-    settings: {
-      units: "celcius"
-    }
-  };
-
   toggleSettingsUnits = units => {
-    this.setState(state => ({
-      settings: {
-        ...state.settings,
-        units
-      }
-    }));
+    this.props.actions.settings.settingsSetUnits(units);
   };
 
   render() {
     return (
-      <Topbar
-        {...this.props}
-        {...this.state}
-        toggleSettingsUnits={this.toggleSettingsUnits}
-      />
+      <Topbar {...this.props} toggleSettingsUnits={this.toggleSettingsUnits} />
     );
   }
 }
 
-export default TopbarContainer;
+const mapStateToProps = ({ settings }) => ({
+  settings
+});
+
+const mapDispatchToProps = dispatch => ({
+  actions: {
+    settings: bindActionCreators(settingsActions, dispatch)
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TopbarContainer);

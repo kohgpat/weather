@@ -21,3 +21,5 @@ const settingsSetUnits = (state, action) => ({
   ...state,
   units: action.payload.units
 });
+
+export default settings;
