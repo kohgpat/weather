@@ -9,6 +9,9 @@ import * as styles from "./styles";
 
 class App extends Component {
   state = {
+    settings: {
+      units: "celcius"
+    },
     addCitySidebar: {
       isVisible: false
     }
@@ -30,9 +33,19 @@ class App extends Component {
     }
   };
 
+  toggleSettingsUnits = units => {
+    this.setState(state => ({
+      settings: {
+        ...state.settings,
+        units
+      }
+    }));
+  };
+
   toggleAddCitySidebar = () => {
     this.setState(state => ({
       addCitySidebar: {
+        ...state.addCitySidebar,
         isVisible: !state.addCitySidebar.isVisible
       }
     }));
@@ -41,7 +54,11 @@ class App extends Component {
   render() {
     return (
       <styles.App>
-        <Topbar toggleAddCitySidebar={this.toggleAddCitySidebar} />
+        <Topbar
+          {...this.state}
+          toggleSettingsUnits={this.toggleSettingsUnits}
+          toggleAddCitySidebar={this.toggleAddCitySidebar}
+        />
 
         <CitiesContainer />
 
