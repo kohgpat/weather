@@ -6,5 +6,6 @@ export const Cities = styled.div`
   flex-shrink: 0;
   align-items: center;
   justify-content: space-around;
+  margin-top: 50px;
   width: 100%;
 `;

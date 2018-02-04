@@ -22,6 +22,10 @@ class Form extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
+    if (!this.isValid()) {
+      return false;
+    }
+
     const city = this.state;
 
     this.props.onAddCity(city);
@@ -29,6 +33,20 @@ class Form extends Component {
     this.setState({
       ...INITIAL_STATE
     });
+  };
+
+  isValid = () => {
+    const { name, interval } = this.state;
+
+    if (!name || !name.length) {
+      return false;
+    }
+
+    if (!interval || !interval.length) {
+      return false;
+    }
+
+    return true;
   };
 
   render() {
@@ -57,7 +75,9 @@ class Form extends Component {
         </styles.Block>
 
         <styles.Block>
-          <styles.SubmitButton>Add city</styles.SubmitButton>
+          <styles.SubmitButton disabled={!this.isValid()}>
+            Add city
+          </styles.SubmitButton>
         </styles.Block>
       </styles.Form>
     );
