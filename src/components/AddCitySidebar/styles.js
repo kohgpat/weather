@@ -4,17 +4,19 @@ import ButtonComponent from "../Button";
 export const Sidebar = styled.div`
   position: absolute;
   top: 0;
-  right: 0;
+  right: -300px;
   bottom: 0;
   width: 300px;
   background-color: #fff;
-  display: none;
   z-index: 1;
   border-left: var(--add-city-sidebar-border);
+  display: flex;
+  flex-direction: column;
+  transition-property: right;
+  transition-duration: 1s;
 
   ${props => props.isVisible && `
-    display: flex;
-    flex-direction: column;
+    right: 0;
   `}
 `;
 
