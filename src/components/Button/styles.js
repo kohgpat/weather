@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
-  font-size: 14px;
-  font-weight: bold;
-  font-family: "Roboto Condensed", "Helvetica Neue", "Helvetica", Arial, sans-serif;
-  padding: 8px 16px;
-  height: 40px;
-  border: 0;
-  background-color: #eee;
-  width: 100%;
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  font-family: var(--button-font-family);
+  padding: var(--button-padding);
+  height: var(--button-height);
+  width: var(--button-width);
+  border: var(--button-border);
+  background-color: var(--button-background-color);
 `;

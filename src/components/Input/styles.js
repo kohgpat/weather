@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const Input = styled.input.attrs({ type: "text" })`
-  height: 40px;
-  width: 100%;
-  padding: 8px;
-  font-size: 16px;
-  font-family: "Roboto Condensed", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  height: var(--input-height);
+  width: var(--input-width);
+  padding: var(--input-padding);
+  font-size: var(--input-font-size);
+  font-family: var(--input-font-family);
+  border: var(--input-border);
 `;
