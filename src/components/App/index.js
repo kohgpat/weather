@@ -14,6 +14,20 @@ class App extends Component {
     }
   };
 
+  componentDidMount() {
+    document.addEventListener("keydown", this.keydownPressed, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.keydownPressed, false);
+  }
+
+  keydownPressed = (e) => {
+    if (e.keyCode === 27) {
+      this.toggleAddCitySidebar();
+    }
+  };
+
   toggleAddCitySidebar = () => {
     this.setState(state => ({
       addCitySidebar: {
