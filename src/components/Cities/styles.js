@@ -21,3 +21,8 @@ export const Cities = styled.div`
     flex-wrap: wrap;
   }
 `;
+
+export const NoCitiesMessage = styled.div`
+  margin-top: 50px;
+  padding: 20px;
+`;

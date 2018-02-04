@@ -4,7 +4,11 @@ import * as styles from "./styles";
 
 const Cities = ({ cities = [], onRemoveCity }) => {
   if (!cities.length) {
-    return null;
+    return (
+      <styles.NoCitiesMessage>
+        You have no any cities. Please add one using form below.
+      </styles.NoCitiesMessage>
+    );
   }
 
   return (
