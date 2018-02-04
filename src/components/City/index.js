@@ -16,7 +16,7 @@ const City = ({ city = null, onRemoveCity }) => {
       </styles.Header>
 
       <styles.Stats>
-        <styles.Stat>{city.main && city.main.temp}</styles.Stat>
+        <styles.Stat major>{city.main && city.main.temp}</styles.Stat>
         <styles.Stat>
           {city.weather && city.weather.length > 0 && city.weather[0].main}
         </styles.Stat>

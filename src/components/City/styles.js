@@ -42,4 +42,9 @@ export const Stats = styled.div`
 
 export const Stat = styled.h4`
   text-transform: capitalize;
+  margin: 0;
+
+  ${props => props.major && `
+    font-size: 3rem;
+  `}
 `;
