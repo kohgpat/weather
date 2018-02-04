@@ -22,8 +22,10 @@ class App extends Component {
     document.removeEventListener("keydown", this.keydownPressed, false);
   }
 
-  keydownPressed = (e) => {
-    if (e.keyCode === 27) {
+  keydownPressed = e => {
+    const { addCitySidebar } = this.state;
+
+    if (addCitySidebar.isVisible && e.keyCode === 27) {
       this.toggleAddCitySidebar();
     }
   };
