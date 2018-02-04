@@ -26,6 +26,14 @@ module.exports = {
             loader: "html-loader"
           }
         ]
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        loader: "url-loader?limit=100000"
       }
     ]
   },
@@ -36,7 +44,7 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       {
-        from: "./src/index.css",
+        from: "./src/index.css"
       }
     ]),
     new WriteFilePlugin(),

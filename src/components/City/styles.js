@@ -21,7 +21,7 @@ export const City = styled.div`
 export const Header = styled.header`
   display: flex;
   align-items: center;
-  jusityf-content: space-between;
+  justify-content: space-between;
 `;
 
 export const Name = styled.h1`
@@ -41,6 +41,13 @@ export const RemoveButton = styled.button.attrs({ type: "button" })`
   ${City}:hover & {
     visibility: visible;
   }
+`;
+
+export const WeatherIcon = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
 `;
 
 export const Stats = styled.div`

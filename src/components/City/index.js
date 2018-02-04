@@ -1,4 +1,5 @@
 import React from "react";
+import WeatherIcon from "../WeatherIcon";
 import * as styles from "./styles";
 
 const City = ({ city = null, onRemoveCity }) => {
@@ -14,6 +15,13 @@ const City = ({ city = null, onRemoveCity }) => {
           &times;
         </styles.RemoveButton>
       </styles.Header>
+
+      {city.weather &&
+        city.weather.length > 0 && (
+          <styles.WeatherIcon>
+            <WeatherIcon weather={city.weather[0]} />
+          </styles.WeatherIcon>
+        )}
 
       <styles.Stats>
         <styles.Stat major>{city.main && city.main.temp}</styles.Stat>
