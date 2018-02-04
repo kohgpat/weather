@@ -3,9 +3,19 @@ import styled from "styled-components";
 export const City = styled.div`
   height: 300px;
   width: 300px;
-  background-color: #eee;
+  background-color: #FFF;
+  border-radius: 4px;
   display: flex;
   flex-direction: column;
+  padding: 20px;
+
+   @supports not (display: grid) {
+     margin-top: 30px;
+
+     &:not(:last-child) {
+       margin-right: 30px;
+     }
+   }
 `;
 
 export const Header = styled.header`
