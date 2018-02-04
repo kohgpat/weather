@@ -25,6 +25,8 @@
   --topbar-height: 60px;
 
   --topbar-name-font-family: "Roboto Condensed", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+
+  --add-city-sidebar-border: 1px solid #eee;
 }
 
 *, *::before, *::after {

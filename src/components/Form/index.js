@@ -6,8 +6,8 @@ const INITIAL_STATE = {
   interval: 10
 };
 
-const convertMinutesToSeconds = (minutes) => {
-  return minutes * 60
+const convertMinutesToSeconds = minutes => {
+  return minutes * 60;
 };
 
 class Form extends Component {
@@ -59,7 +59,9 @@ class Form extends Component {
 
   render() {
     return (
-      <styles.Form onSubmit={this.handleSubmit}>
+      <styles.Form
+        onSubmit={this.handleSubmit}
+        inSidebar={this.props.inSidebar}>
         <styles.Block>
           <styles.Name>Enter City</styles.Name>
         </styles.Block>

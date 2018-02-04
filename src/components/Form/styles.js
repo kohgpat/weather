@@ -12,6 +12,10 @@ export const Form = styled.form`
   padding: 20px;
   background-color: #fff;
   border-radius: 4px;
+
+  ${props => props.inSidebar && `
+    margin-top: 0;
+  `}
 `;
 
 export const Name = styled.h4`

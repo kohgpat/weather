@@ -5,16 +5,16 @@ import * as citiesActions from "../../store/cities/actions";
 import Form from "../../components/Form";
 
 class FormContainer extends Component {
-  handleAddCity = (city) => {
+  handleAddCity = city => {
     this.props.actions.cities.citiesAdd(city);
   };
 
   render() {
-    return <Form onAddCity={this.handleAddCity} />;
+    return <Form {...this.props} onAddCity={this.handleAddCity} />;
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   actions: {
     cities: bindActionCreators(citiesActions, dispatch)
   }

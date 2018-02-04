@@ -20,7 +20,7 @@ export const Name = styled.h1`
   margin: 0 auto;
 `;
 
-export const AddCityModalToggle = styled(ButtonComponent)`
+export const AddCitySidebarToggle = styled(ButtonComponent)`
   width: auto;
   position: absolute;
   right: 0;
