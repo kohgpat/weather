@@ -5,7 +5,6 @@ import {
   cancel,
   call,
   fork,
-  spawn,
   put,
   select,
   take,
@@ -22,19 +21,18 @@ function* citiesAll(action) {
 
   try {
     if (cities.length) {
-      const citiesNames = cities.map(city => city.name);
-      const response = yield all(
-        citiesNames.map(city => call(Api.cities.find, city))
+      yield all(
+        cities.map(city =>
+          call(citiesAdd, {
+            payload: {
+              city: {
+                name: city.name,
+                interval: city.params.interval
+              }
+            }
+          })
+        )
       );
-      yield put(
-        citiesActions.citiesAllSuccess(response.map(city => city.data))
-      );
-      const refreshedCities = yield select(citiesSelectors.getCities);
-      const refresh = yield all(
-        refreshedCities.map(city => spawn(refreshCity, city))
-      );
-
-      console.log(refresh);
     }
   } catch (error) {
     console.log(error);
@@ -66,9 +64,6 @@ function* citiesAdd(action) {
     yield put(citiesActions.citiesAddSuccess(city));
     const refresh = yield fork(refreshCity, city);
     const stopRefreshCity = yield take(citiesActions.CITIES_STOP_REFRESH);
-
-    console.log(refresh);
-    console.log(stopRefreshCity, city);
 
     if (stopRefreshCity.payload.city.id === city.id) {
       yield cancel(refresh);
