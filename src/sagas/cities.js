@@ -62,12 +62,13 @@ function* citiesAdd(action) {
     };
 
     yield put(citiesActions.citiesAddSuccess(city));
-    const refresh = yield fork(refreshCity, city);
-    const stopRefreshCity = yield take(citiesActions.CITIES_STOP_REFRESH);
+    // TODO: Uncomment
+    // const refresh = yield fork(refreshCity, city);
+    // const stopRefreshCity = yield take(citiesActions.CITIES_STOP_REFRESH);
 
-    if (stopRefreshCity.payload.city.id === city.id) {
-      yield cancel(refresh);
-    }
+    // if (stopRefreshCity.payload.city.id === city.id) {
+    //   yield cancel(refresh);
+    // }
   } catch (error) {
     console.log(error);
   }
