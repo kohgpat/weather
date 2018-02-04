@@ -3,15 +3,12 @@ import { connect } from "react-redux";
 import * as citiesSelectors from "../../store/cities/selectors";
 import CitiesContainer from "../../containers/Cities";
 import FormContainer from "../../containers/Form";
-import Topbar from "../Topbar";
+import TopbarContainer from "../../containers/Topbar";
 import AddCitySidebar from "../../components/AddCitySidebar";
 import * as styles from "./styles";
 
 class App extends Component {
   state = {
-    settings: {
-      units: "celcius"
-    },
     addCitySidebar: {
       isVisible: false
     }
@@ -33,15 +30,6 @@ class App extends Component {
     }
   };
 
-  toggleSettingsUnits = units => {
-    this.setState(state => ({
-      settings: {
-        ...state.settings,
-        units
-      }
-    }));
-  };
-
   toggleAddCitySidebar = () => {
     this.setState(state => ({
       addCitySidebar: {
@@ -54,12 +42,7 @@ class App extends Component {
   render() {
     return (
       <styles.App>
-        <Topbar
-          {...this.state}
-          toggleSettingsUnits={this.toggleSettingsUnits}
-          toggleAddCitySidebar={this.toggleAddCitySidebar}
-        />
-
+        <TopbarContainer toggleAddCitySidebar={this.toggleAddCitySidebar} />
         <CitiesContainer />
 
         {this.props.cities.length < 1 && <FormContainer />}
