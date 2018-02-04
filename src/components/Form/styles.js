@@ -25,8 +25,13 @@ export const Block = styled.div`
 `;
 
 export const Label = styled.label`
-  display: block;
+  display: flex;
   margin-bottom: 5px;
+`;
+
+export const HelpText = styled.span`
+  color: #7F7F7F;
+  margin-left: auto;
 `;
 
 export const Input = styled(InputComponent).attrs({ type: "text" })``;

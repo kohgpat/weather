@@ -3,7 +3,11 @@ import * as styles from "./styles";
 
 const INITIAL_STATE = {
   name: "",
-  interval: 10000
+  interval: 10
+};
+
+const convertMinutesToSeconds = (minutes) => {
+  return minutes * 60
 };
 
 class Form extends Component {
@@ -27,8 +31,12 @@ class Form extends Component {
     }
 
     const city = this.state;
+    const _city = {
+      ...city,
+      interval: convertMinutesToSeconds(city.interval) * 1000
+    };
 
-    this.props.onAddCity(city);
+    this.props.onAddCity(_city);
 
     this.setState({
       ...INITIAL_STATE
@@ -42,7 +50,7 @@ class Form extends Component {
       return false;
     }
 
-    if (!interval || !interval.length) {
+    if (!interval) {
       return false;
     }
 
@@ -66,7 +74,10 @@ class Form extends Component {
         </styles.Block>
 
         <styles.Block>
-          <styles.Label>Update interval</styles.Label>
+          <styles.Label>
+            Update interval
+            <styles.HelpText>(in minutes)</styles.HelpText>
+          </styles.Label>
           <styles.Input
             name="interval"
             value={this.state.interval}
