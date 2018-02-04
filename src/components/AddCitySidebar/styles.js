@@ -16,7 +16,7 @@ export const SidebarTrigger = styled.div`
 `;
 
 export const Sidebar = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   right: -300px;
   bottom: 0;
@@ -26,6 +26,7 @@ export const Sidebar = styled.div`
   border-left: var(--add-city-sidebar-border);
   display: flex;
   flex-direction: column;
+  height: 100vh;
   transition-property: right;
   transition-duration: 1s;
 
