@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
+import * as citiesSelectors from "../../store/cities/selectors";
 import Topbar from "../Topbar";
 import CitiesContainer from "../../containers/Cities";
 import FormContainer from "../../containers/Form";
@@ -12,10 +12,15 @@ class App extends Component {
       <styles.App>
         <Topbar />
         <CitiesContainer />
-        <FormContainer />
+
+        {this.props.cities.length < 1 && <FormContainer />}
       </styles.App>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  cities: citiesSelectors.getCities(state)
+});
+
+export default connect(mapStateToProps, null)(App);
