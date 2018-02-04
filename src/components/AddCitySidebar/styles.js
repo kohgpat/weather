@@ -1,6 +1,20 @@
 import styled from "styled-components";
 import ButtonComponent from "../Button";
 
+export const SidebarWrapper = styled.div`
+  z-index: 1;
+`;
+
+export const SidebarTrigger = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+`;
+
 export const Sidebar = styled.div`
   position: absolute;
   top: 0;
@@ -8,7 +22,7 @@ export const Sidebar = styled.div`
   bottom: 0;
   width: 300px;
   background-color: #fff;
-  z-index: 1;
+  z-index: 2;
   border-left: var(--add-city-sidebar-border);
   display: flex;
   flex-direction: column;
