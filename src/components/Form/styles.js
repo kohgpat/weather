@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import ButtonComponent from "../Button";
+import InputComponent from "../Input";
 
 export const Form = styled.form`
   display: flex;
@@ -23,19 +25,6 @@ export const Label = styled.label`
   margin-bottom: 5px;
 `;
 
-export const Input = styled.input.attrs({ type: "text" })`
-  height: 40px;
-  width: 100%;
-  padding: 8px;
-  font-size: 16px;
-`;
+export const Input = styled(InputComponent).attrs({ type: "text" })``;
 
-export const SubmitButton = styled.button`
-  font-size: 14px;
-  font-weight: bold;
-  padding: 8px 16px;
-  height: 40px;
-  border: 0;
-  background-color: #eee;
-  width: 100%;
-`;
+export const SubmitButton = styled(ButtonComponent).attrs({ type: "submit" })``;

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Topbar = styled.div`
+  background-color: #eee;
   width: 100%;
   height: 80px;
   display: flex;
