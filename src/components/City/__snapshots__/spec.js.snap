@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `""`;
+
+exports[`renders 2`] = `
+<styled.div>
+  <styled.header>
+    <styled.h1>
+      Moscow
+    </styled.h1>
+    <styled.button
+      onClick={[Function]}
+    >
+      ×
+    </styled.button>
+  </styled.header>
+  <styled.div>
+    <WeatherIcon
+      weather={
+        Object {
+          "main": Object {
+            "description": "mist",
+            "temp": "-10",
+          },
+        }
+      }
+    />
+  </styled.div>
+  <styled.div>
+    <styled.h4
+      major={true}
+    />
+    <styled.h4 />
+  </styled.div>
+</styled.div>
+`;
