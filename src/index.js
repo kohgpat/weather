@@ -21,7 +21,8 @@ const store = createStore(
 store.subscribe(
   throttle(() => {
     saveState({
-      cities: store.getState().cities
+      cities: store.getState().cities,
+      settings: store.getState().settings,
     });
   }, 1000)
 );

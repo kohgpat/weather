@@ -13,6 +13,7 @@ import {
 } from "redux-saga/effects";
 import * as citiesActions from "../store/cities/actions";
 import * as citiesSelectors from "../store/cities/selectors";
+import * as settingsSelectors from "../store/settings/selectors";
 import Api from "../api";
 
 // WORKERS
@@ -42,7 +43,8 @@ function* citiesAll(action) {
 function* refreshCity(city) {
   try {
     while (true) {
-      const refreshedCity = yield call(Api.cities.find, city.name);
+      const units = yield select(settingsSelectors.getUnits);
+      const refreshedCity = yield call(Api.cities.find, city.name, units);
       yield put(citiesActions.citiesUpdateSuccess(refreshedCity.data));
       yield call(delay, city.params.interval);
     }
@@ -53,7 +55,8 @@ function* refreshCity(city) {
 
 function* citiesAdd(action) {
   try {
-    const response = yield call(Api.cities.find, action.payload.city.name);
+    const units = yield select(settingsSelectors.getUnits);
+    const response = yield call(Api.cities.find, action.payload.city.name, units);
     const city = {
       ...response.data,
       params: {
@@ -81,7 +84,8 @@ function* citiesRemove(action) {
 
 function* citiesUpdate(action) {
   try {
-    const city = yield call(Api.cities.find, action.payload.city.name);
+    const units = yield select(settingsSelectors.getUnits);    
+    const city = yield call(Api.cities.find, action.payload.city.name, units);
     yield put(citiesActions.citiesUpdateSuccess(action.payload.city));
   } catch (error) {
     console.log(error);

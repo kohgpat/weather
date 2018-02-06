@@ -1,1 +1,1 @@
-export const getUnits = state => state.units;
+export const getUnits = state => state.settings.units;
