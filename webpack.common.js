@@ -49,8 +49,5 @@ module.exports = {
     ]),
     new WriteFilePlugin(),
     new DotenvPlugin()
-  ],
-  devServer: {
-    contentBase: "./build"
-  }
+  ]
 };
