@@ -3,19 +3,19 @@ import styled from "styled-components";
 export const City = styled.div`
   height: 300px;
   width: 300px;
-  background-color: #FFF;
+  background-color: #fff;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
   padding: 20px;
 
-   @supports not (display: grid) {
-     margin-top: 30px;
+  @supports not (display: grid) {
+    margin-top: 30px;
 
-     &:not(:last-child) {
-       margin-right: 30px;
-     }
-   }
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+  }
 `;
 
 export const Header = styled.header`
@@ -61,7 +61,9 @@ export const Stat = styled.h4`
   text-transform: capitalize;
   margin: 0;
 
-  ${props => props.major && `
+  ${props =>
+    props.major &&
+    `
     font-size: 3rem;
-  `}
+  `};
 `;
