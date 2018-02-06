@@ -51,6 +51,6 @@
     "test:watch": "./node_modules/.bin/jest --watch"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir/setupJest.js>"
+    "setupTestFrameworkScriptFile": "<rootDir>/setupJest.js"
   }
 }
