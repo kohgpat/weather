@@ -18,7 +18,8 @@ const WeatherIcon = ({ weather }) => {
     wiClass += isDay ? " wi-day-fog" : " wi-night-fog";
   }
 
-  if (weather.description === "broken clouds") {
+  if (weather.description === "broken clouds" ||
+      weather.description === "few clouds") {
     wiClass += isDay ? " wi-day-cloudy" : " wi-night-cloudy";
   }
 
@@ -30,8 +31,13 @@ const WeatherIcon = ({ weather }) => {
     wiClass += " wi-day-sunny-overcast";
   }
 
-  if (weather.description === "light rain") {
+  if (weather.description === "light rain" ||
+      weather.description === "shower rain") {
     wiClass += isDay ? " wi-day-rain" : " wi-night-rain";
+  }
+
+  if (weather.description === "smoke") {
+    wiClass += " wi-smoke";
   }
 
   return (
