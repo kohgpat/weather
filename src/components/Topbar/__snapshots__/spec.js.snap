@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render 1`] = `
+<styled.div>
+  <Styled(Container)>
+    <styled.div>
+      <Styled(Button)
+        disabled={true}
+        isActive={true}
+        onClick={[Function]}
+      >
+        Celcius
+      </Styled(Button)>
+      <Styled(Button)
+        disabled={false}
+        isActive={false}
+        onClick={[Function]}
+      >
+        Fahrenheit
+      </Styled(Button)>
+    </styled.div>
+    <styled.h1>
+      Weather
+    </styled.h1>
+    <Styled(Button)
+      onClick={[MockFunction]}
+    >
+      +
+    </Styled(Button)>
+  </Styled(Container)>
+</styled.div>
+`;
