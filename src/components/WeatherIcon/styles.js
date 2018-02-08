@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
-export const Icon = styled.i`
-  font-size: 64px;
+const ENDPOINT = "http://openweathermap.org/img/w/";
+
+export const Icon = styled.div`
+  width: 50px;
+  height: 50px;
+
+  ${props => props.icon && `
+    background-image: url(${ENDPOINT}${props.icon}.png);
+  `}
 `;
