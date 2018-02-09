@@ -14,8 +14,3 @@ it("renders", () => {
   const iconWithWeather = shallow(<WeatherIcon weather={weather} />);
   expect(iconWithWeather).toMatchSnapshot();
 });
-
-it("renders null without weather", () => {
-  const icon = shallow(<WeatherIcon />);
-  expect(icon.type()).toEqual(null);
-});
