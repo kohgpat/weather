@@ -1,8 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 import WeatherIcon from "../WeatherIcon";
+import WeatherDegree from "../WeatherDegree";
 import * as styles from "./styles";
 
-const City = ({ city = null, onRemoveCity }) => {
+const City = ({ city, settings, onRemoveCity }) => {
   if (!city) {
     return null;
   }
@@ -24,13 +26,28 @@ const City = ({ city = null, onRemoveCity }) => {
         )}
 
       <styles.Stats>
-        <styles.Stat major>{city.main && city.main.temp}</styles.Stat>
+        <styles.Stat major>
+          {city.main && city.main.temp} <WeatherDegree units={settings.units} />
+        </styles.Stat>
+
         <styles.Stat>
           {city.weather && city.weather.length > 0 && city.weather[0].main}
         </styles.Stat>
       </styles.Stats>
     </styles.City>
   );
+};
+
+City.propTypes = {
+  city: PropTypes.object.isRequired,
+  settings: PropTypes.object.isRequired,
+  onRemoveCity: PropTypes.func.isRequired,
+};
+
+City.defaultProps = {
+  cities: null,
+  settings: null,
+  onRemoveCity: null
 };
 
 export default City;

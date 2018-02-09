@@ -3,6 +3,7 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as citiesActions from "../../store/cities/actions";
 import * as citiesSelectors from "../../store/cities/selectors";
+import * as settingsSelectors from "../../store/settings/selectors";
 import Cities from "../../components/Cities";
 
 class CitiesContainer extends Component {
@@ -10,19 +11,28 @@ class CitiesContainer extends Component {
     this.props.actions.cities.citiesAll();
   }
 
-  handleRemoveCity = (city) => {
+  handleRemoveCity = city => {
     this.props.actions.cities.citiesRemove(city);
   };
 
   render() {
-    const { cities } = this.props;
+    const { cities, settings } = this.props;
 
-    return <Cities cities={cities} onRemoveCity={this.handleRemoveCity} />;
+    return (
+      <Cities
+        cities={cities}
+        settings={settings}
+        onRemoveCity={this.handleRemoveCity}
+      />
+    );
   }
 }
 
-const mapStateToProps = (state) => ({
-  cities: citiesSelectors.getCities(state)
+const mapStateToProps = state => ({
+  cities: citiesSelectors.getCities(state),
+  settings: {
+    units: settingsSelectors.getUnits(state)
+  }
 });
 
 const mapDispatchToProps = dispatch => ({

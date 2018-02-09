@@ -1,6 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders 1`] = `""`;
+exports[`renders 1`] = `
+<styled.div>
+  <styled.header>
+    <styled.h1 />
+    <styled.button
+      onClick={[Function]}
+    >
+      ×
+    </styled.button>
+  </styled.header>
+  <styled.div>
+    <styled.h4
+      major={true}
+    >
+       
+      <WeatherDegree
+        units="celcius"
+      />
+    </styled.h4>
+    <styled.h4 />
+  </styled.div>
+</styled.div>
+`;
 
 exports[`renders 2`] = `
 <styled.div>
@@ -29,7 +51,12 @@ exports[`renders 2`] = `
   <styled.div>
     <styled.h4
       major={true}
-    />
+    >
+       
+      <WeatherDegree
+        units="celcius"
+      />
+    </styled.h4>
     <styled.h4 />
   </styled.div>
 </styled.div>
