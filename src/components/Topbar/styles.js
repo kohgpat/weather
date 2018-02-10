@@ -9,6 +9,10 @@ export const Topbar = styled.div`
   display: flex;
   flex-shrink: 0;
   align-items: center;
+  padding: 0 20px;
+
+  @media (min-width: 1028px) {
+  }
 `;
 
 export const Container = styled(ContainerComponent)`

@@ -6,9 +6,17 @@ export const Cities = styled.div`
 
   @supports (display: grid) {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     grid-gap: 30px;
     grid-auto-rows: minmax(300px, auto);
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1028px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   @supports not (display: grid) {
