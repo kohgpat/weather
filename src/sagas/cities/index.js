@@ -17,30 +17,26 @@ import * as settingsSelectors from "../../store/settings/selectors";
 import Api from "../../api";
 
 // WORKERS
-function* citiesAll(action) {
+export function* citiesAll(action) {
   const cities = yield select(citiesSelectors.getCities);
 
-  try {
-    if (cities.length) {
-      yield all(
-        cities.map(city =>
-          call(citiesAdd, {
-            payload: {
-              city: {
-                name: city.name,
-                interval: city.params.interval
-              }
+  if (cities.length) {
+    yield all(
+      cities.map(city =>
+        call(citiesAdd, {
+          payload: {
+            city: {
+              name: city.name,
+              interval: city.params.interval
             }
-          })
-        )
-      );
-    }
-  } catch (error) {
-    console.log(error);
+          }
+        })
+      )
+    );
   }
 }
 
-function* refreshCity(city) {
+export function* refreshCity(city) {
   try {
     while (true) {
       const units = yield select(settingsSelectors.getUnits);
@@ -53,10 +49,14 @@ function* refreshCity(city) {
   }
 }
 
-function* citiesAdd(action) {
+export function* citiesAdd(action) {
   try {
     const units = yield select(settingsSelectors.getUnits);
-    const response = yield call(Api.cities.find, action.payload.city.name, units);
+    const response = yield call(
+      Api.cities.find,
+      action.payload.city.name,
+      units
+    );
     const city = {
       ...response.data,
       params: {
@@ -65,26 +65,26 @@ function* citiesAdd(action) {
     };
 
     yield put(citiesActions.citiesAddSuccess(city));
-    // TODO: Uncomment
-    // const refresh = yield fork(refreshCity, city);
-    // const stopRefreshCity = yield take(citiesActions.CITIES_STOP_REFRESH);
 
-    // if (stopRefreshCity.payload.city.id === city.id) {
-    //   yield cancel(refresh);
-    // }
+    const refresh = yield fork(refreshCity, city);
+    const stopRefreshCity = yield take(citiesActions.CITIES_STOP_REFRESH);
+
+    if (stopRefreshCity.payload.city.id === city.id) {
+      yield cancel(refresh);
+    }
   } catch (error) {
     console.log(error);
   }
 }
 
-function* citiesRemove(action) {
+export function* citiesRemove(action) {
   yield put(citiesActions.citiesRemoveSuccess(action.payload.city));
   yield put(citiesActions.citiesStopRefresh(action.payload.city));
 }
 
-function* citiesUpdate(action) {
+export function* citiesUpdate(action) {
   try {
-    const units = yield select(settingsSelectors.getUnits);    
+    const units = yield select(settingsSelectors.getUnits);
     const city = yield call(Api.cities.find, action.payload.city.name, units);
     yield put(citiesActions.citiesUpdateSuccess(action.payload.city));
   } catch (error) {
@@ -93,7 +93,7 @@ function* citiesUpdate(action) {
 }
 
 // WATCHERS
-function* citiesFlow() {
+export function* citiesFlow() {
   yield takeLatest(citiesActions.CITIES_ALL, citiesAll);
   yield takeEvery(citiesActions.CITIES_ADD, citiesAdd);
   yield takeLatest(citiesActions.CITIES_REMOVE, citiesRemove);
