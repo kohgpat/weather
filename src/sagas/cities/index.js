@@ -11,10 +11,10 @@ import {
   takeEvery,
   takeLatest
 } from "redux-saga/effects";
-import * as citiesActions from "../store/cities/actions";
-import * as citiesSelectors from "../store/cities/selectors";
-import * as settingsSelectors from "../store/settings/selectors";
-import Api from "../api";
+import * as citiesActions from "../../store/cities/actions";
+import * as citiesSelectors from "../../store/cities/selectors";
+import * as settingsSelectors from "../../store/settings/selectors";
+import Api from "../../api";
 
 // WORKERS
 function* citiesAll(action) {

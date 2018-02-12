@@ -1,5 +1,5 @@
-import * as settingsActions from "../store/settings/actions";
-import * as citiesActions from "../store/cities/actions";
+import * as settingsActions from "../../store/settings/actions";
+import * as citiesActions from "../../store/cities/actions";
 
 import {
   all,
