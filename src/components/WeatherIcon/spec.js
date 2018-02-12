@@ -8,9 +8,6 @@ const weather = {
 };
 
 it("renders", () => {
-  const iconWithoutWeather = shallow(<WeatherIcon />);
-  expect(iconWithoutWeather).toMatchSnapshot();
-
-  const iconWithWeather = shallow(<WeatherIcon weather={weather} />);
-  expect(iconWithWeather).toMatchSnapshot();
+  const weatherIcon = shallow(<WeatherIcon weather={weather} />);
+  expect(weatherIcon).toMatchSnapshot();
 });
