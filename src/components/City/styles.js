@@ -35,11 +35,15 @@ export const RemoveButton = styled.button.attrs({ type: "button" })`
   background-color: transparent;
   border: 0;
   margin: 10px 10px 10px auto;
-  visibility: hidden;
+  visibility: visibility;
   cursor: pointer;
 
-  ${City}:hover & {
-    visibility: visible;
+  @media (min-width: 768px) {
+    visibility: hidden;
+
+    ${City}:hover & {
+      visibility: visible;
+    }
   }
 `;
 
