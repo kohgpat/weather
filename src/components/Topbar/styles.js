@@ -6,17 +6,16 @@ export const Topbar = styled.div`
   background-color: var(--topbar-background-color);
   width: var(--topbar-width);
   height: var(--topbar-height);
-  display: flex;
   flex-shrink: 0;
-  align-items: center;
-  padding: 0 20px;
-
-  @media (min-width: 1028px) {
-  }
+  padding: 10px 20px;
 `;
 
 export const Container = styled(ContainerComponent)`
   position: relative;
+  align-items: center;
+  margin: 0 auto;
+  justify-content: space-around;
+  height: 100%;
 `;
 
 export const Settings = styled.div`
@@ -28,6 +27,7 @@ export const SettingsControl = styled(ButtonComponent).attrs({
   type: "button"
 })`
   width: auto;
+  margin: 0;
 
   ${props => props.isActive && `
     background-color: #333;
@@ -37,7 +37,11 @@ export const SettingsControl = styled(ButtonComponent).attrs({
 
 export const Name = styled.h1`
   font-family: var(--topbar-name-font-family);
-  margin: 0 auto;
+  font-size: 24px;
+
+  @media (min-width: 768px) {
+    font-size: 32px;
+  }
 `;
 
 export const AddCitySidebarToggle = styled(ButtonComponent).attrs({
