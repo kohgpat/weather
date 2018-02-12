@@ -18,9 +18,9 @@ export const SidebarTrigger = styled.div`
 export const Sidebar = styled.div`
   position: fixed;
   top: 0;
-  right: -300px;
+  right: -320px;
   bottom: 0;
-  width: 300px;
+  width: 320px;
   background-color: #fff;
   z-index: 2;
   border-left: var(--add-city-sidebar-border);
