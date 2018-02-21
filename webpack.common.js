@@ -2,7 +2,6 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const WriteFilePlugin = require("write-file-webpack-plugin");
-const DotenvPlugin = require("dotenv-webpack");
 
 module.exports = {
   entry: ["babel-polyfill", "./src/index.js"],
@@ -48,6 +47,5 @@ module.exports = {
       }
     ]),
     new WriteFilePlugin(),
-    new DotenvPlugin()
   ]
 };
