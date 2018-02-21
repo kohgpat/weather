@@ -18,6 +18,7 @@
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-saga": "^0.16.0",
+    "serve": "^6.4.11",
     "styled-components": "^2.4.0"
   },
   "devDependencies": {
@@ -47,7 +48,8 @@
     "build": "./node_modules/.bin/webpack --config webpack.prod.js",
     "clean": "rm -r ./build",
     "test": "./node_modules/.bin/jest",
-    "test:watch": "./node_modules/.bin/jest --watch"
+    "test:watch": "./node_modules/.bin/jest --watch",
+    "now-start": "serve ./build"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/setupJest.js",
