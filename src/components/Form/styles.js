@@ -13,9 +13,12 @@ export const Form = styled.form`
   background-color: #fff;
   border-radius: 4px;
 
-  ${props => props.inSidebar && `
+  ${props =>
+    props.inSidebar &&
+    `
     margin-top: 0;
-  `}
+    width: 100%;
+  `};
 `;
 
 export const Name = styled.h4`
@@ -34,10 +37,12 @@ export const Label = styled.label`
 `;
 
 export const HelpText = styled.span`
-  color: #7F7F7F;
+  color: #7f7f7f;
   margin-left: auto;
 `;
 
 export const Input = styled(InputComponent).attrs({ type: "text" })``;
 
-export const SubmitButton = styled((props) => <ButtonComponent {...props} />).attrs({ type: "submit" })``;
+export const SubmitButton = styled(props => (
+  <ButtonComponent {...props} />
+)).attrs({ type: "submit" })``;
