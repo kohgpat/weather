@@ -52,7 +52,7 @@ export const Sidebar = styled.div`
 export const SidebarHeader = styled.header`
   display: flex;
   flex-shrink: 0;
-  padding: 20px;
+  padding: 10px 20px;
 `;
 
 export const SidebarCloseButton = styled(ButtonComponent).attrs({
