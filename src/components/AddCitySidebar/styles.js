@@ -18,13 +18,13 @@ export const SidebarTrigger = styled.div`
 export const Sidebar = styled.div`
   position: fixed;
   top: 0;
-  right: -320px;
+  right: 0;
   bottom: 0;
-  width: 320px;
+  width: 100%;
   background-color: #fff;
   z-index: 2;
   border-left: var(--add-city-sidebar-border);
-  display: flex;
+  display: none;
   flex-direction: column;
   height: 100vh;
   transition-property: right;
@@ -33,8 +33,20 @@ export const Sidebar = styled.div`
   ${props =>
     props.isVisible &&
     `
-    right: 0;
+    display: flex;
   `};
+
+  @media (min-width: 768px) {
+    display: flex;
+    max-width: 320px;
+    right: -320px;
+
+    ${props =>
+      props.isVisible &&
+      `
+      right: 0;
+    `};
+  }
 `;
 
 export const SidebarHeader = styled.header`
