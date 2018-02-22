@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ButtonComponent from "../Button";
 import InputComponent from "../Input";
 
-export const Form = styled.form`
+export const Form = styled.form.attrs({ autoComplete: "off" })`
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
