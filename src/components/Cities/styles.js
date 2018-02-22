@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Cities = styled.div`
-  margin-top: 50px;
+  margin-top: calc(50px + var(--topbar-height));
   padding: 20px;
 
   @supports (display: grid) {
@@ -31,6 +31,6 @@ export const Cities = styled.div`
 `;
 
 export const NoCitiesMessage = styled.div`
-  margin-top: 50px;
+  margin-top: calc(50px + var(--topbar-height));
   padding: 20px;
 `;

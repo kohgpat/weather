@@ -3,6 +3,7 @@ import ContainerComponent from "../Container";
 import ButtonComponent from "../Button";
 
 export const Topbar = styled.div`
+  position: fixed;
   background-color: var(--topbar-background-color);
   width: var(--topbar-width);
   height: var(--topbar-height);
