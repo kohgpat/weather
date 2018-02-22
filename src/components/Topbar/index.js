@@ -14,7 +14,7 @@ const isMobile = () => {
 class Topbar extends Component {
   state = {
     isMobile: isMobile()
-  }
+  };
 
   componentDidMount() {
     window.addEventListener("resize", this.handleResize);
@@ -28,7 +28,7 @@ class Topbar extends Component {
     this.setState({
       isMobile: isMobile()
     });
-  }
+  };
 
   render() {
     const { settings, toggleSettingsUnits, toggleAddCitySidebar } = this.props;
