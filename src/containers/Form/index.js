@@ -7,6 +7,10 @@ import Form from "../../components/Form";
 class FormContainer extends Component {
   handleAddCity = city => {
     this.props.actions.cities.citiesAdd(city);
+
+    if (this.props.inSidebar) {
+      this.props.toggleAddCitySidebar();
+    }
   };
 
   render() {
