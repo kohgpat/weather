@@ -30,17 +30,22 @@ export const Sidebar = styled.div`
   transition-property: right;
   transition-duration: 1s;
 
-  ${props => props.isVisible && `
+  ${props =>
+    props.isVisible &&
+    `
     right: 0;
-  `}
+  `};
 `;
 
 export const SidebarHeader = styled.header`
   display: flex;
+  flex-shrink: 0;
   padding: 20px;
 `;
 
-export const SidebarCloseButton = styled(ButtonComponent).attrs({ type: "button" })`
+export const SidebarCloseButton = styled(ButtonComponent).attrs({
+  type: "button"
+})`
   width: auto;
   margin-left: auto;
 `;
