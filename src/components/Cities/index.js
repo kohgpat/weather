@@ -7,7 +7,7 @@ const Cities = ({ cities, settings, onRemoveCity }) => {
   if (!cities.length) {
     return (
       <styles.NoCitiesMessage>
-        You have no any cities. Please add one using form below.
+        You have no cities. Please add one using form below.
       </styles.NoCitiesMessage>
     );
   }
@@ -29,7 +29,7 @@ const Cities = ({ cities, settings, onRemoveCity }) => {
 Cities.propTypes = {
   cities: PropTypes.array.isRequired,
   settings: PropTypes.object.isRequired,
-  onRemoveCity: PropTypes.func.isRequired,
+  onRemoveCity: PropTypes.func.isRequired
 };
 
 Cities.defaultProps = {
