@@ -41,7 +41,17 @@ export const HelpText = styled.span`
   margin-left: auto;
 `;
 
-export const Input = styled(InputComponent).attrs({ type: "text" })``;
+export const Input = styled(InputComponent).attrs({ type: "text" })`
+  &[type="number"]::-webkit-outer-spin-button,
+  &[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
+`;
 
 export const SubmitButton = styled(props => (
   <ButtonComponent {...props} />

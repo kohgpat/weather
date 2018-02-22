@@ -82,6 +82,7 @@ class Form extends Component {
           </styles.Label>
           <styles.Input
             name="interval"
+            type="number"
             value={this.state.interval}
             onChange={e => this.handleFieldChange("interval", e.target.value)}
           />
