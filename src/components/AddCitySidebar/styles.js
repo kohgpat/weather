@@ -20,13 +20,13 @@ export const Sidebar = styled.div`
   top: 0;
   right: 0;
   bottom: 0;
-  width: 100%;
-  background-color: #fff;
-  z-index: 2;
-  border-left: var(--add-city-sidebar-border);
-  display: none;
-  flex-direction: column;
+  width: 100vw;
   height: 100vh;
+  z-index: 2;
+  display: none;
+  background-color: #fff;
+  border-left: var(--add-city-sidebar-border);
+  flex-direction: column;
   transition-property: right;
   transition-duration: 1s;
 
