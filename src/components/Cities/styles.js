@@ -12,7 +12,15 @@ export const Cities = styled.div`
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 30px;
-    grid-auto-rows: minmax(300px, auto);
+    grid-auto-rows: minmax(320px, auto);
+
+    ${props =>
+      props.isMobile &&
+      props.addCitySidebar &&
+      props.addCitySidebar.isVisible &&
+      `
+      display: none;
+    `};
 
     @media (min-width: 768px) {
       grid-template-columns: repeat(2, 1fr);
@@ -31,6 +39,14 @@ export const Cities = styled.div`
     justify-content: center;
     width: 100%;
     flex-wrap: wrap;
+
+    ${props =>
+      props.isMobile &&
+      props.addCitySidebar &&
+      props.addCitySidebar.isVisible &&
+      `
+      display: none;
+    `};
   }
 `;
 

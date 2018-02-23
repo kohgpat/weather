@@ -3,7 +3,13 @@ import PropTypes from "prop-types";
 import City from "../City";
 import * as styles from "./styles";
 
-const Cities = ({ cities, settings, onRemoveCity }) => {
+const Cities = ({
+  cities,
+  settings,
+  isMobile,
+  addCitySidebar,
+  onRemoveCity
+}) => {
   if (!cities.length) {
     return (
       <styles.NoCitiesMessage>
@@ -13,7 +19,7 @@ const Cities = ({ cities, settings, onRemoveCity }) => {
   }
 
   return (
-    <styles.Cities>
+    <styles.Cities isMobile={isMobile} addCitySidebar={addCitySidebar}>
       {cities.map(city => (
         <City
           key={city.id}

@@ -3,8 +3,8 @@ import { Portal } from "react-portal";
 import FormContainer from "../../containers/Form";
 import * as styles from "./styles";
 
-const AddCitySidebar = ({ addCitySidebar, toggleAddCitySidebar }) => (
-  <styles.SidebarWrapper>
+const AddCitySidebar = ({ isMobile, addCitySidebar, toggleAddCitySidebar }) => (
+  <styles.SidebarWrapper isMobile={isMobile} addCitySidebar={addCitySidebar}>
     {addCitySidebar.isVisible && (
       <Portal>
         <styles.SidebarTrigger onClick={toggleAddCitySidebar} />

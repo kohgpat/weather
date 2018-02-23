@@ -9,6 +9,14 @@ export const Topbar = styled.div`
   height: var(--topbar-height);
   flex-shrink: 0;
   padding: 10px 20px;
+
+  ${props =>
+    props.isMobile &&
+    props.addCitySidebar &&
+    props.addCitySidebar.isVisible &&
+    `
+    display: none;
+  `};
 `;
 
 export const Container = styled(ContainerComponent)`
@@ -30,10 +38,12 @@ export const SettingsControl = styled(ButtonComponent).attrs({
   width: auto;
   margin: 0;
 
-  ${props => props.isActive && `
+  ${props =>
+    props.isActive &&
+    `
     background-color: #333;
     color: #fff;
-  `}
+  `};
 `;
 
 export const Name = styled.h1`

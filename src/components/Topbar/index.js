@@ -1,42 +1,22 @@
 import React, { Component } from "react";
 import * as styles from "./styles";
 
-const isMobile = () => {
-  let mobile = true;
-
-  if (window.innerWidth > 767) {
-    mobile = false;
-  }
-
-  return mobile;
-};
-
 class Topbar extends Component {
   state = {
-    isMobile: isMobile()
-  };
-
-  componentDidMount() {
-    window.addEventListener("resize", this.handleResize);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.handleResize);
-  }
-
-  handleResize = () => {
-    this.setState({
-      isMobile: isMobile()
-    });
+    isMobile: this.props.isMobile
   };
 
   render() {
-    const { settings, toggleSettingsUnits, toggleAddCitySidebar } = this.props;
-
-    const isMobile = this.state.isMobile;
+    const {
+      settings,
+      isMobile,
+      addCitySidebar,
+      toggleSettingsUnits,
+      toggleAddCitySidebar
+    } = this.props;
 
     return (
-      <styles.Topbar>
+      <styles.Topbar isMobile={isMobile} addCitySidebar={addCitySidebar}>
         <styles.Container>
           <styles.Settings>
             <styles.SettingsControl

@@ -7,8 +7,19 @@ import TopbarContainer from "../../containers/Topbar";
 import AddCitySidebar from "../../components/AddCitySidebar";
 import * as styles from "./styles";
 
+const isMobile = () => {
+  let mobile = true;
+
+  if (window.innerWidth > 767) {
+    mobile = false;
+  }
+
+  return mobile;
+};
+
 class App extends Component {
   state = {
+    isMobile: isMobile(),
     addCitySidebar: {
       isVisible: false
     }
@@ -16,10 +27,12 @@ class App extends Component {
 
   componentDidMount() {
     document.addEventListener("keydown", this.keydownPressed, false);
+    window.addEventListener("resize", this.handleResize);
   }
 
   componentWillUnmount() {
     document.removeEventListener("keydown", this.keydownPressed, false);
+    window.removeEventListener("resize", this.handleResize);
   }
 
   keydownPressed = e => {
@@ -28,6 +41,12 @@ class App extends Component {
     if (addCitySidebar.isVisible && e.keyCode === 27) {
       this.toggleAddCitySidebar();
     }
+  };
+
+  handleResize = () => {
+    this.setState({
+      isMobile: isMobile()
+    });
   };
 
   toggleAddCitySidebar = () => {
@@ -42,8 +61,11 @@ class App extends Component {
   render() {
     return (
       <styles.App>
-        <TopbarContainer toggleAddCitySidebar={this.toggleAddCitySidebar} />
-        <CitiesContainer />
+        <TopbarContainer
+          {...this.state}
+          toggleAddCitySidebar={this.toggleAddCitySidebar}
+        />
+        <CitiesContainer {...this.state} />
 
         {this.props.cities.length < 1 && <FormContainer />}
 

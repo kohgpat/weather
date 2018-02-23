@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const City = styled.div`
+  height: 280px;
+  width: 280px;
   background-color: #fff;
   border-radius: 4px;
   display: flex;
@@ -14,6 +16,12 @@ export const City = styled.div`
 
   @supports not (display: grid) {
     margin-top: 30px;
+
+    @media (orientation: landscape) {
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+    }
 
     @media (min-width: 768px) {
       &:not(:last-child) {
