@@ -41,7 +41,7 @@ const City = ({ city, settings, onRemoveCity }) => {
 City.propTypes = {
   city: PropTypes.object.isRequired,
   settings: PropTypes.object.isRequired,
-  onRemoveCity: PropTypes.func.isRequired,
+  onRemoveCity: PropTypes.func.isRequired
 };
 
 City.defaultProps = {

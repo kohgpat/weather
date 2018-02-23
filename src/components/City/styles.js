@@ -12,8 +12,10 @@ export const City = styled.div`
   @supports not (display: grid) {
     margin-top: 30px;
 
-    &:not(:last-child) {
-      margin-right: 30px;
+    @media (min-width: 768px) {
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
     }
   }
 `;
