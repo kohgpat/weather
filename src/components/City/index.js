@@ -4,6 +4,20 @@ import WeatherIcon from "../WeatherIcon";
 import WeatherDegree from "../WeatherDegree";
 import * as styles from "./styles";
 
+const formatTemperature = temperature => {
+  if (!temperature) {
+    return null;
+  }
+
+  const temperatureString = temperature + "";
+
+  if (temperatureString.split(".").length) {
+    return temperatureString.split(".")[0];
+  } else {
+    return temperatureString;
+  }
+};
+
 const City = ({ city, settings, onRemoveCity }) => {
   if (!city) {
     return null;
@@ -27,7 +41,8 @@ const City = ({ city, settings, onRemoveCity }) => {
 
       <styles.Stats>
         <styles.Stat major>
-          {city.main && city.main.temp} <WeatherDegree units={settings.units} />
+          {city.main && formatTemperature(city.main.temp)}{" "}
+          <WeatherDegree units={settings.units} />
         </styles.Stat>
 
         <styles.Stat>
