@@ -20,7 +20,7 @@ it("renders - no cities", () => {
     <Cities settings={settings} onRemoveCity={onRemoveCity} />
   );
   expect(cities.text()).toContain(
-    "You have no any cities. Please add one using form below."
+    "You have no cities. Please add one using form below."
   );
 });
 
