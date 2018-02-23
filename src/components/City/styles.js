@@ -1,13 +1,16 @@
 import styled from "styled-components";
 
 export const City = styled.div`
-  height: 300px;
-  width: 300px;
   background-color: #fff;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
   padding: 20px;
+
+  @media (min-width: 768px) {
+    height: 300px;
+    width: 300px;
+  }
 
   @supports not (display: grid) {
     margin-top: 30px;
