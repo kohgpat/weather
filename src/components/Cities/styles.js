@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
 export const Cities = styled.div`
-  margin-top: calc(50px + var(--topbar-height));
+  margin-top: calc(20px + var(--topbar-height));
   padding: 20px;
+
+  @media (min-width: 768px) {
+    margin-top: calc(50px + var(--topbar-height));
+  }
 
   @supports (display: grid) {
     display: grid;
@@ -31,6 +35,10 @@ export const Cities = styled.div`
 `;
 
 export const NoCitiesMessage = styled.div`
-  margin-top: calc(50px + var(--topbar-height));
+  margin-top: calc(20px + var(--topbar-height));
   padding: 20px;
+
+  @media (min-width: 768px) {
+    margin-top: calc(50px + var(--topbar-height));
+  }
 `;
