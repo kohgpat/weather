@@ -4,7 +4,7 @@ import * as citiesActions from "../../store/cities/actions";
 import { all, put, takeEvery } from "redux-saga/effects";
 
 // WORKERS
-export function* settingsSetUnits(action) {
+export function* settingsSetUnits() {
   yield put(citiesActions.citiesAll());
 }
 

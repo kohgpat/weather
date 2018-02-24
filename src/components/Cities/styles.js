@@ -15,6 +15,7 @@ export const Cities = styled.div`
     grid-auto-rows: minmax(300px, auto);
 
     ${props =>
+    // eslint-disable-next-line indent
       props.isMobile &&
       props.addCitySidebar &&
       props.addCitySidebar.isVisible &&
@@ -41,6 +42,7 @@ export const Cities = styled.div`
     flex-wrap: wrap;
 
     ${props =>
+    // eslint-disable-next-line indent
       props.isMobile &&
       props.addCitySidebar &&
       props.addCitySidebar.isVisible &&

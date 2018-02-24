@@ -22,14 +22,16 @@ class Topbar extends Component {
             <styles.SettingsControl
               isActive={settings.units === "celcius"}
               disabled={settings.units === "celcius"}
-              onClick={() => toggleSettingsUnits("celcius")}>
+              onClick={() => toggleSettingsUnits("celcius")}
+            >
               {isMobile ? "C" : "Celcius"}
             </styles.SettingsControl>
 
             <styles.SettingsControl
               isActive={settings.units === "fahrenheit"}
               disabled={settings.units === "fahrenheit"}
-              onClick={() => toggleSettingsUnits("fahrenheit")}>
+              onClick={() => toggleSettingsUnits("fahrenheit")}
+            >
               {isMobile ? "F" : "Fahrenheit"}
             </styles.SettingsControl>
           </styles.Settings>

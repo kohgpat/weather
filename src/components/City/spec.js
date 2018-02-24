@@ -1,7 +1,8 @@
+/*global jest, it, expect*/
 import React from "react";
 import City from "./index";
 import * as styles from "./styles";
-import { shallow, mount } from "enzyme";
+import { shallow } from "enzyme";
 
 const city = {
   id: 1,

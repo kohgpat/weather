@@ -37,7 +37,7 @@ const citiesAllSuccess = (state, action) => {
     ...state,
     entities: {
       ...state.entities,
-      ...action.payload.cities.reduce((all, current, idx) => {
+      ...action.payload.cities.reduce((all, current) => {
         all[current.id] = {
           ...state.entities[current.id],
           ...current

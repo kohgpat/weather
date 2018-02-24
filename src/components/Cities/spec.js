@@ -1,3 +1,4 @@
+/*global jest, it, expect*/
 import React from "react";
 import Cities from "./index";
 import { shallow, mount } from "enzyme";

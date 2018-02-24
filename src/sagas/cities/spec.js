@@ -1,15 +1,13 @@
+/*global it, expect*/
 import "regenerator-runtime/runtime";
 import {
   all,
   call,
   fork,
   take,
-  takeEvery,
-  takeLatest,
   put,
   select
 } from "redux-saga/effects";
-import * as settingsActions from "../../store/settings/actions";
 import * as settingsSelectors from "../../store/settings/selectors";
 import * as citiesActions from "../../store/cities/actions";
 import * as citiesSelectors from "../../store/cities/selectors";
@@ -131,9 +129,7 @@ it("should update cities on citiesActions.CITIES_UPDATE", () => {
 
   const gen = citiesSagas.citiesUpdate(action);
 
-  expect(gen.next().value).toEqual(
-    select(settingsSelectors.getUnits)
-  );
+  expect(gen.next().value).toEqual(select(settingsSelectors.getUnits));
 
   expect(gen.next(settings.units).value).toEqual(
     call(Api.cities.find, action.payload.city.name, settings.units)

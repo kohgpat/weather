@@ -1,3 +1,4 @@
+/*global it, expect*/
 import React from "react";
 import Button from "./index";
 import { shallow } from "enzyme";

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as settingsActions from "../../store/settings/actions";
-import * as settingsSelectors from "../../store/settings/selectors";
 import Topbar from "../../components/Topbar";
 
 class TopbarContainer extends Component {

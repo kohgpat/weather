@@ -47,7 +47,7 @@ export const Sidebar = styled.div`
   flex-direction: column;
   transition-property: right;
   transition-duration: 1s;
-  box-shadow: 4px 0 40px -2px rgba(0,0,0,0.1);
+  box-shadow: 4px 0 40px -2px rgba(0, 0, 0, 0.1);
 
   ${props =>
     props.isVisible &&
@@ -61,6 +61,7 @@ export const Sidebar = styled.div`
     right: -320px;
 
     ${props =>
+    // eslint-disable-next-line indent
       props.isVisible &&
       `
       right: 0;

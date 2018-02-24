@@ -16,7 +16,7 @@ import * as settingsSelectors from "../../store/settings/selectors";
 import Api from "../../api";
 
 // WORKERS
-export function* citiesAll(action) {
+export function* citiesAll() {
   const cities = yield select(citiesSelectors.getCities);
 
   if (cities.length) {
@@ -44,6 +44,7 @@ export function* refreshCity(city) {
       yield call(delay, city.params.interval);
     }
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
   }
 }
@@ -72,6 +73,7 @@ export function* citiesAdd(action) {
       yield cancel(refresh);
     }
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
   }
 }
@@ -85,8 +87,9 @@ export function* citiesUpdate(action) {
   try {
     const units = yield select(settingsSelectors.getUnits);
     const city = yield call(Api.cities.find, action.payload.city.name, units);
-    yield put(citiesActions.citiesUpdateSuccess(action.payload.city));
+    yield put(citiesActions.citiesUpdateSuccess(city));
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
   }
 }

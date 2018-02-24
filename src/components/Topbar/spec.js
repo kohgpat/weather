@@ -1,3 +1,4 @@
+/*global jest, it, expect*/
 import React from "react";
 import Topbar from "./index";
 import * as styles from "./styles";

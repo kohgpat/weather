@@ -1,7 +1,7 @@
+/*global it, expect*/
 import React from "react";
 import WeatherIcon from "./index";
-import * as styles from "./styles";
-import { shallow, render } from "enzyme";
+import { shallow } from "enzyme";
 
 const weather = {
   icon: "10d"

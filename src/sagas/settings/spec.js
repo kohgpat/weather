@@ -1,5 +1,6 @@
+/*global it, expect*/
 import "regenerator-runtime/runtime";
-import { call, takeEvery, put } from "redux-saga/effects";
+import { takeEvery, put } from "redux-saga/effects";
 import * as settingsActions from "../../store/settings/actions";
 import * as citiesActions from "../../store/cities/actions";
 import * as settingsSagas from "./index";

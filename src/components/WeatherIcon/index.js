@@ -14,4 +14,4 @@ WeatherIcon.propTypes = {
   weather: PropTypes.object.isRequired
 };
 
-export default WeatherIcon
+export default WeatherIcon;

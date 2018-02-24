@@ -1,3 +1,4 @@
+/*global it, expect*/
 import React from "react";
 import WeatherDegree from "./index";
 import { shallow, mount } from "enzyme";
