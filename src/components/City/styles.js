@@ -40,6 +40,10 @@ export const Header = styled.header`
 
 export const Name = styled.h1`
   margin: 10px;
+  width: 80%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
 
 export const RemoveButton = styled.button.attrs({ type: "button" })`

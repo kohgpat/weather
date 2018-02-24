@@ -26,7 +26,7 @@ const City = ({ city, settings, onRemoveCity }) => {
   return (
     <styles.City>
       <styles.Header>
-        <styles.Name>{city.name}</styles.Name>
+        <styles.Name title={city.name}>{city.name}</styles.Name>
         <styles.RemoveButton onClick={() => onRemoveCity(city)}>
           &times;
         </styles.RemoveButton>
