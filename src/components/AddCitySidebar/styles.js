@@ -44,10 +44,10 @@ export const Sidebar = styled.div`
   z-index: 2;
   display: none;
   background-color: #fff;
-  border-left: var(--add-city-sidebar-border);
   flex-direction: column;
   transition-property: right;
   transition-duration: 1s;
+  box-shadow: 4px 0 40px -2px rgba(0,0,0,0.1);
 
   ${props =>
     props.isVisible &&
