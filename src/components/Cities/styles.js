@@ -12,7 +12,7 @@ export const Cities = styled.div`
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 30px;
-    grid-auto-rows: minmax(320px, auto);
+    grid-auto-rows: minmax(300px, auto);
 
     ${props =>
       props.isMobile &&
