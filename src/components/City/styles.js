@@ -5,6 +5,7 @@ export const City = styled.div`
   width: 280px;
   background-color: #fff;
   border-radius: 4px;
+  box-shadow: 0 0 20px -2px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
   padding: 20px;
