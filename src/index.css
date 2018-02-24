@@ -1,5 +1,6 @@
 :root {
-  --background-color: #F8F8F8;
+  --background-color: #4FADDF;
+  --background-gradient: linear-gradient(to right, #36D1DC, #5B86E5);
   --color: #333;
   --font-size: 16px;
   --font-family: "Roboto Condensed", "Helvetica Neue", "Helvetica", Arial, sans-serif;
@@ -11,7 +12,10 @@
   --button-width: 100%;
   --button-height: 40px;
   --button-border: 0;
-  --button-background-color: #eee;
+  --button-background-color: #4FADDF;
+  --button-color: #FFF;
+  --button-background-color-active: #1c92d2;
+  --button-color-active: #FFF;
 
   --input-height: 40px;
   --input-width: 100%;
@@ -25,6 +29,11 @@
   --topbar-height: 60px;
 
   --topbar-name-font-family: "Roboto Condensed", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+
+  --topbar-settings-control-background-color: var(--button-background-color);
+  --topbar-settings-control-color: var(--button-color-active);
+  --topbar-settings-control-background-color-active: var(--button-background-color-active, var(--button-background-color));
+  --topbar-settings-control-color-active: var(--button-color-active, var(--button-color));
 
   --add-city-sidebar-border: 1px solid #eee;
 }
@@ -41,6 +50,7 @@ body {
   padding: 0;
   margin: 0;
   background-color: var(--background-color);
+  background: var(--background-gradient);
   color: var(--color);
   font-size: var(--font-size);
   font-family: var(--font-family);

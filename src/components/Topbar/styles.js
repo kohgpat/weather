@@ -37,12 +37,14 @@ export const SettingsControl = styled(ButtonComponent).attrs({
 })`
   width: auto;
   margin: 0;
+  background-color: var(--topbar-settings-control-background-color);
+  color: var(--topbar-settings-control-color);
 
   ${props =>
     props.isActive &&
     `
-    background-color: #333;
-    color: #fff;
+    background-color: var(--topbar-settings-control-background-color-active);
+    color: var(--topbar-settings-control-color-active);
   `};
 `;
 

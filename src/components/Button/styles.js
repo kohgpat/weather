@@ -8,5 +8,6 @@ export const Button = styled.button`
   height: var(--button-height);
   width: var(--button-width);
   border: var(--button-border);
-  background-color: var(--button-background-color);
+  background-color: var(--button-background-color-active);
+  color: var(--button-color-active);
 `;
