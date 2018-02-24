@@ -9,6 +9,7 @@ export const Topbar = styled.div`
   height: var(--topbar-height);
   flex-shrink: 0;
   padding: 10px 20px;
+  box-shadow: 0 4px 2px -2px rgba(0,0,0,0.1);
 
   ${props =>
     props.isMobile &&
