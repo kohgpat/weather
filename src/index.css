@@ -34,6 +34,8 @@
   --topbar-settings-control-color: var(--button-color-active);
   --topbar-settings-control-background-color-active: var(--button-background-color-active, var(--button-background-color));
   --topbar-settings-control-color-active: var(--button-color-active, var(--button-color));
+
+  --add-city-sidebar-height: var(--topbar-height);
 }
 
 *, *::before, *::after {
