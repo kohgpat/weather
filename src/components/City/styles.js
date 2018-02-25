@@ -8,7 +8,7 @@ export const City = styled.div`
   box-shadow: 0 0 20px -2px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 10px;
 
   @media (min-width: 768px) {
     height: 300px;
@@ -69,11 +69,11 @@ export const WeatherIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 30px;
+  margin: auto 0;
 `;
 
 export const Stats = styled.div`
-  margin: auto 10px 10px;
+  margin: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
