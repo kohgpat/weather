@@ -12,7 +12,7 @@ export const Cities = styled.div`
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 30px;
-    grid-auto-rows: minmax(300px, auto);
+    grid-auto-rows: minmax(280px, auto);
 
     ${props =>
     // eslint-disable-next-line indent
