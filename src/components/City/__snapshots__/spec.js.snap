@@ -39,7 +39,7 @@ exports[`renders 2`] = `
   </styled.header>
   <styled.header>
     <styled.h4>
-      Update every: 
+      Update every 
       0.0016666666666666668
        minutes
     </styled.h4>

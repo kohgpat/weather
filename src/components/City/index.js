@@ -46,7 +46,7 @@ const City = ({ city, settings, onRemoveCity }) => {
       {city.params && (
         <styles.SubHeader>
           <styles.SubHeaderText>
-            Update every: {formatInterval(city.params.interval)} minutes
+            Update every {formatInterval(city.params.interval)} minutes
           </styles.SubHeaderText>
         </styles.SubHeader>
       )}
