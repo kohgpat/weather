@@ -43,11 +43,13 @@ const City = ({ city, settings, onRemoveCity }) => {
         </styles.RemoveButton>
       </styles.Header>
 
-      <styles.SubHeader>
-        <styles.SubHeaderText>
-          Update every: {formatInterval(city.params.interval)} minutes
-        </styles.SubHeaderText>
-      </styles.SubHeader>
+      {city.params && (
+        <styles.SubHeader>
+          <styles.SubHeaderText>
+            Update every: {formatInterval(city.params.interval)} minutes
+          </styles.SubHeaderText>
+        </styles.SubHeader>
+      )}
 
       {city.weather &&
         city.weather.length > 0 && (
@@ -64,9 +66,12 @@ const City = ({ city, settings, onRemoveCity }) => {
           <WeatherDegree units={settings.units} />
         </styles.Stat>
 
-        <styles.Stat>
-          <WeatherIcon weather={city.weather[0]} />
-        </styles.Stat>
+        {city.weather &&
+          city.weather.length > 0 && (
+            <styles.Stat>
+              <WeatherIcon weather={city.weather[0]} />
+            </styles.Stat>
+          )}
       </styles.Stats>
     </styles.City>
   );

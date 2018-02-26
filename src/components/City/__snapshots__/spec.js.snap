@@ -19,7 +19,6 @@ exports[`renders 1`] = `
         units="celcius"
       />
     </styled.h4>
-    <styled.h4 />
   </styled.div>
 </styled.div>
 `;
@@ -38,16 +37,16 @@ exports[`renders 2`] = `
       ×
     </styled.button>
   </styled.header>
+  <styled.header>
+    <styled.h4>
+      Update every: 
+      0.0016666666666666668
+       minutes
+    </styled.h4>
+  </styled.header>
   <styled.div>
-    <WeatherIcon
-      weather={
-        Object {
-          "main": Object {
-            "description": "mist",
-            "temp": "-10",
-          },
-        }
-      }
+    <styled.h4
+      major={true}
     />
   </styled.div>
   <styled.div>
@@ -59,7 +58,18 @@ exports[`renders 2`] = `
         units="celcius"
       />
     </styled.h4>
-    <styled.h4 />
+    <styled.h4>
+      <WeatherIcon
+        weather={
+          Object {
+            "main": Object {
+              "description": "mist",
+              "temp": "-10",
+            },
+          }
+        }
+      />
+    </styled.h4>
   </styled.div>
 </styled.div>
 `;

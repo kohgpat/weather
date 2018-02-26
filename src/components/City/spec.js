@@ -7,7 +7,10 @@ import { shallow } from "enzyme";
 const city = {
   id: 1,
   name: "Moscow",
-  weather: [{ main: { temp: "-10", description: "mist" } }]
+  weather: [{ main: { temp: "-10", description: "mist" } }],
+  params: {
+    interval: 100
+  }
 };
 
 const settings = {
