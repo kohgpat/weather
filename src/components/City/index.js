@@ -35,7 +35,9 @@ const City = ({ city, settings, onRemoveCity }) => {
       {city.weather &&
         city.weather.length > 0 && (
           <styles.WeatherIcon>
-            <WeatherIcon weather={city.weather[0]} />
+            <styles.Stat major>
+              {city.weather && city.weather.length > 0 && city.weather[0].main}
+            </styles.Stat>
           </styles.WeatherIcon>
         )}
 
@@ -46,7 +48,7 @@ const City = ({ city, settings, onRemoveCity }) => {
         </styles.Stat>
 
         <styles.Stat>
-          {city.weather && city.weather.length > 0 && city.weather[0].main}
+          <WeatherIcon weather={city.weather[0]} />
         </styles.Stat>
       </styles.Stats>
     </styles.City>
