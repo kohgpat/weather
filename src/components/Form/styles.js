@@ -19,6 +19,11 @@ export const Form = styled.form.attrs({ autoComplete: "off" })`
     margin-top: 0;
     width: 100%;
   `};
+
+  @media (min-width: 768px) {
+    align-self: center;
+    width: 320px;
+  }
 `;
 
 export const Name = styled.h4`
