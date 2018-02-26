@@ -4,4 +4,4 @@ React application based on task - https://gist.github.com/TimBeyer/2565bd2b085fd
 
 Build with React, Redux, Redux-Saga and Styled-Components.
 
-View on https://zeit.co/now - https://weather-xxdypwqtkb.now.sh/
+View on https://zeit.co/now - https://weather-dirdenvfiw.now.sh/
