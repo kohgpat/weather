@@ -7,9 +7,9 @@ export const Form = styled.form.attrs({ autoComplete: "off" })`
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  margin-top: 50px;
-  width: 300px;
+  align-self: stretch;
   padding: 20px;
+  margin: 10px 20px 20px;
   background-color: #fff;
   border-radius: 4px;
 
