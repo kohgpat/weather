@@ -5,7 +5,7 @@ export const City = styled.div`
   width: 280px;
   background-color: #fff;
   border-radius: 4px;
-  box-shadow: 0 0 20px -2px rgba(0,0,0,0.1);
+  box-shadow: 0 0 20px -2px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -38,6 +38,18 @@ export const Header = styled.header`
   justify-content: space-between;
 `;
 
+export const SubHeader = styled.header`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const SubHeaderText = styled.h4`
+  margin: 0 10px;
+  color: #666;
+  font-weight: 400;
+`;
+
 export const Name = styled.h1`
   margin: 10px;
   width: 80%;
@@ -65,7 +77,7 @@ export const RemoveButton = styled.button.attrs({ type: "button" })`
   }
 `;
 
-export const WeatherIcon = styled.div`
+export const WeatherMain = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

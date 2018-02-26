@@ -18,6 +18,17 @@ const formatTemperature = temperature => {
   }
 };
 
+const formatInterval = interval => {
+  if (!interval) {
+    return null;
+  }
+
+  const millisecondsInSecond = 1000;
+  const secondsInMinute = 60;
+
+  return interval / millisecondsInSecond / secondsInMinute;
+};
+
 const City = ({ city, settings, onRemoveCity }) => {
   if (!city) {
     return null;
@@ -32,13 +43,19 @@ const City = ({ city, settings, onRemoveCity }) => {
         </styles.RemoveButton>
       </styles.Header>
 
+      <styles.SubHeader>
+        <styles.SubHeaderText>
+          Update every: {formatInterval(city.params.interval)} minutes
+        </styles.SubHeaderText>
+      </styles.SubHeader>
+
       {city.weather &&
         city.weather.length > 0 && (
-          <styles.WeatherIcon>
+          <styles.WeatherMain>
             <styles.Stat major>
               {city.weather && city.weather.length > 0 && city.weather[0].main}
             </styles.Stat>
-          </styles.WeatherIcon>
+          </styles.WeatherMain>
         )}
 
       <styles.Stats>
