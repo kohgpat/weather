@@ -1,28 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { applyMiddleware, compose, createStore } from "redux";
 import { Provider } from "react-redux";
 import createSagaMiddleware from "redux-saga";
 import throttle from "lodash/throttle";
-import { loadState, saveState } from "./localStorage";
-import rootReducer from "./store/rootReducer";
+import { saveState } from "./localStorage";
 import rootSaga from "./sagas/rootSaga";
 import App from "./components/App";
+import configureStore from "./configureStore";
 
 const sagaMiddleware = createSagaMiddleware();
-const prealoadedState = loadState();
 
-const store = createStore(
-  rootReducer,
-  prealoadedState,
-  compose(applyMiddleware(sagaMiddleware)),
-);
+const store = configureStore(sagaMiddleware);
 
 store.subscribe(
   throttle(() => {
     saveState({
       cities: store.getState().cities,
-      settings: store.getState().settings,
+      settings: store.getState().settings
     });
   }, 1000)
 );
