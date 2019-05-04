@@ -1,8 +1,8 @@
-import { delay } from "redux-saga";
 import {
   all,
-  cancel,
   call,
+  cancel,
+  delay,
   fork,
   put,
   select,
