@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import WeatherIcon from "../WeatherIcon";
 import WeatherDegree from "../WeatherDegree";
-import * as styles from "./styles";
+import * as s from "./styles";
 
 const formatTemperature = temperature => {
   if (!temperature) {
@@ -35,45 +35,45 @@ const City = ({ city, settings, onRemoveCity }) => {
   }
 
   return (
-    <styles.City>
-      <styles.Header>
-        <styles.Name title={city.name}>{city.name}</styles.Name>
-        <styles.RemoveButton onClick={() => onRemoveCity(city)}>
+    <s.City>
+      <s.Header>
+        <s.Name title={city.name}>{city.name}</s.Name>
+        <s.RemoveButton onClick={() => onRemoveCity(city)}>
           &times;
-        </styles.RemoveButton>
-      </styles.Header>
+        </s.RemoveButton>
+      </s.Header>
 
       {city.params && (
-        <styles.SubHeader>
-          <styles.SubHeaderText>
+        <s.SubHeader>
+          <s.SubHeaderText>
             Update every {formatInterval(city.params.interval)} minutes
-          </styles.SubHeaderText>
-        </styles.SubHeader>
+          </s.SubHeaderText>
+        </s.SubHeader>
       )}
 
       {city.weather &&
         city.weather.length > 0 && (
-          <styles.WeatherMain>
-            <styles.Stat major>
+          <s.WeatherMain>
+            <s.Stat major>
               {city.weather && city.weather.length > 0 && city.weather[0].main}
-            </styles.Stat>
-          </styles.WeatherMain>
+            </s.Stat>
+          </s.WeatherMain>
         )}
 
-      <styles.Stats>
-        <styles.Stat major>
+      <s.Stats>
+        <s.Stat major>
           {city.main && formatTemperature(city.main.temp)}{" "}
           <WeatherDegree units={settings.units} />
-        </styles.Stat>
+        </s.Stat>
 
         {city.weather &&
           city.weather.length > 0 && (
-            <styles.Stat>
+            <s.Stat>
               <WeatherIcon weather={city.weather[0]} />
-            </styles.Stat>
+            </s.Stat>
           )}
-      </styles.Stats>
-    </styles.City>
+      </s.Stats>
+    </s.City>
   );
 };
 

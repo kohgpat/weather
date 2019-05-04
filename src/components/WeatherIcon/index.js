@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import * as styles from "./styles";
+import * as s from "./styles";
 
 const WeatherIcon = ({ weather }) => {
   if (!weather) {
     return null;
   }
 
-  return <styles.Icon icon={weather.icon} />;
+  return <s.Icon icon={weather.icon} />;
 };
 
 WeatherIcon.propTypes = {

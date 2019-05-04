@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import * as styles from "./styles";
+import * as s from "./styles";
 
 const INITIAL_STATE = {
   name: "",
@@ -58,41 +58,41 @@ class Form extends Component {
 
   render() {
     return (
-      <styles.Form
+      <s.Form
         onSubmit={this.handleSubmit}
         inSidebar={this.props.inSidebar}>
-        <styles.Block>
-          <styles.Name>Enter City</styles.Name>
-        </styles.Block>
+        <s.Block>
+          <s.Name>Enter City</s.Name>
+        </s.Block>
 
-        <styles.Block>
-          <styles.Label>Name</styles.Label>
-          <styles.Input
+        <s.Block>
+          <s.Label>Name</s.Label>
+          <s.Input
             name="name"
             value={this.state.name}
             onChange={e => this.handleFieldChange("name", e.target.value)}
           />
-        </styles.Block>
+        </s.Block>
 
-        <styles.Block>
-          <styles.Label>
+        <s.Block>
+          <s.Label>
             Update interval
-            <styles.HelpText>(in minutes)</styles.HelpText>
-          </styles.Label>
-          <styles.Input
+            <s.HelpText>(in minutes)</s.HelpText>
+          </s.Label>
+          <s.Input
             name="interval"
             type="number"
             value={this.state.interval}
             onChange={e => this.handleFieldChange("interval", e.target.value)}
           />
-        </styles.Block>
+        </s.Block>
 
-        <styles.Block>
-          <styles.SubmitButton disabled={!this.isValid()}>
+        <s.Block>
+          <s.SubmitButton disabled={!this.isValid()}>
             Add city
-          </styles.SubmitButton>
-        </styles.Block>
-      </styles.Form>
+          </s.SubmitButton>
+        </s.Block>
+      </s.Form>
     );
   }
 }

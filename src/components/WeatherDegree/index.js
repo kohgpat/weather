@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import * as styles from "./styles";
+import * as s from "./styles";
 
 const WeatherDegree = ({ units }) => {
   if (!units) {
@@ -8,11 +8,11 @@ const WeatherDegree = ({ units }) => {
   }
 
   if (units === "celcius") {
-    return <styles.Degree>°C</styles.Degree>;
+    return <s.Degree>°C</s.Degree>;
   }
 
   if (units === "fahrenheit") {
-    return <styles.Degree>°F</styles.Degree>;
+    return <s.Degree>°F</s.Degree>;
   }
 
   return null;
