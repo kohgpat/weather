@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as settingsActions from "../../store/settings/actions";
+import * as settingsSelectores from "../../store/settings/selectors";
 import Topbar from "../../components/Topbar";
 
 class TopbarContainer extends Component {
@@ -16,8 +17,11 @@ class TopbarContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ settings }) => ({
-  settings
+const mapStateToProps = (state) => ({
+  settings: {
+    isCelcius: settingsSelectores.isCelsius(state),
+    isFahrenheit: settingsSelectores.isFahrenheit(state)
+  }
 });
 
 const mapDispatchToProps = dispatch => ({
