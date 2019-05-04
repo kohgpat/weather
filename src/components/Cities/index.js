@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import City from "../City";
-import * as styles from "./styles";
+import * as s from "./styles";
 
 const Cities = ({
   cities,
@@ -12,14 +12,14 @@ const Cities = ({
 }) => {
   if (!cities.length) {
     return (
-      <styles.NoCitiesMessage>
+      <s.NoCitiesMessage>
         You have no cities. Please add one using form below.
-      </styles.NoCitiesMessage>
+      </s.NoCitiesMessage>
     );
   }
 
   return (
-    <styles.Cities isMobile={isMobile} addCitySidebar={addCitySidebar}>
+    <s.Cities isMobile={isMobile} addCitySidebar={addCitySidebar}>
       {cities.map(city => (
         <City
           key={city.id}
@@ -28,7 +28,7 @@ const Cities = ({
           onRemoveCity={onRemoveCity}
         />
       ))}
-    </styles.Cities>
+    </s.Cities>
   );
 };
 
