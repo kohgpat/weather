@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import * as s from "./styles";
 
 class Topbar extends Component {
-  state = {
-    isMobile: this.props.isMobile
-  };
-
   render() {
     const {
       settings,
