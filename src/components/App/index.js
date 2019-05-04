@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import throttle from "lodash/throttle";
 import { connect } from "react-redux";
 import * as citiesSelectors from "../../store/cities/selectors";
 import CitiesContainer from "../../containers/Cities";
@@ -43,11 +44,11 @@ class App extends Component {
     }
   };
 
-  handleResize = () => {
+  handleResize = throttle(() => {
     this.setState({
       isMobile: isMobile()
     });
-  };
+  }, 300);
 
   toggleAddCitySidebar = () => {
     this.setState(state => ({
@@ -82,4 +83,7 @@ const mapStateToProps = state => ({
   cities: citiesSelectors.getCities(state)
 });
 
-export default connect(mapStateToProps, null)(App);
+export default connect(
+  mapStateToProps,
+  null
+)(App);
