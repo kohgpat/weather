@@ -14,7 +14,7 @@
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-saga": "^0.16.0",
-    "serve": "^6.4.11",
+    "serve": "^11.0.0",
     "styled-components": "^2.4.0"
   },
   "devDependencies": {
