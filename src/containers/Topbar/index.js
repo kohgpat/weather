@@ -17,7 +17,7 @@ class TopbarContainer extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   settings: {
     isCelcius: settingsSelectores.isCelsius(state),
     isFahrenheit: settingsSelectores.isFahrenheit(state)
@@ -30,4 +30,7 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(TopbarContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TopbarContainer);
