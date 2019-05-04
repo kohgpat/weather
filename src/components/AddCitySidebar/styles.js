@@ -46,7 +46,7 @@ export const Sidebar = styled.div`
   background-color: #fff;
   flex-direction: column;
   transition-property: right;
-  transition-duration: 1s;
+  transition-duration: 0.5s;
   box-shadow: 4px 0 40px -2px rgba(0, 0, 0, 0.1);
 
   ${props =>
