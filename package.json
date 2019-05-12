@@ -53,7 +53,7 @@
     "write-file-webpack-plugin": "^4.5.0"
   },
   "scripts": {
-    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "start": "webpack-dev-server --config webpack.dev.js",
     "build": "./node_modules/.bin/webpack --config webpack.prod.js",
     "clean": "rm -r ./build",
     "test": "./node_modules/.bin/jest",
